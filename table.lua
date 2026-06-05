@@ -426,7 +426,6 @@ getgenv()['Prosper'] = {
                 ['Speed Modifications'] = {
                   ['Enabled'] = true,
                     ['Anti Trip'] = true,
-                    ['Anti Stopper'] = false,
                      ['Multipliers'] = {
                         ['Normal'] = { ['Multiplier'] = 35 },
                         ['Shooting'] = { ['Multiplier'] = 35 },
