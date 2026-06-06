@@ -116,7 +116,7 @@ getgenv()['Prosper'] = {
 
                 ['Camera Aimbot'] = {
                     ['Enabled'] = true, 
-                    ['Mode'] = "Hold", -- Toggle / Hold
+                    ['Mode'] = "Hold", -- Toggle / Hold / Always
                     ['Sticky'] = false, 
                     ['Hit Point'] = "Scaled",  -- Surface // Scaled // Part Name
                     ['Scaled'] = { ['Scale'] = 0.2 },
