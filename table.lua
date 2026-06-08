@@ -1,6 +1,6 @@
     getgenv()['Prosper'] = {
                     ['Authentication'] = {
-                        ['Key'] = "hello" -- put your key in for Luarmor
+                        ['Key'] = "KeyHere" -- put your key in for Luarmor
                     },    
                     ["Extras"] = {
                         ["Mod Detector"] = true, -- Will kick you if a Mod is in-game
