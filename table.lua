@@ -455,3 +455,4 @@
                     },
                     ['No Jump Cooldown'] = true,          
                 }
+                loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/d900e5606391ba0ae0b87d74989527a8.lua"))()
