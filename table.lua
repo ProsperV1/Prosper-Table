@@ -1,4 +1,4 @@
-    getgenv()['Prosper'] = {
+ getgenv()['Prosper'] = {
                     ['Authentication'] = {
                         ['Key'] = "KeyHere" -- put your key in for Luarmor
                     },    
@@ -178,13 +178,17 @@
                                 ['Delay'] = 0.2,
                                 ['Randomize'] = {
                                     ['Enabled'] = false,
-                                    ['Delay'] = { {0.15, 0.25} } -- Min / Max
+                                    ['Delay'] = { {0.15, 0.25} }
                                 }
                             },
 
-                            ['FOV-based Speed'] = { -- Moves camlock slow/fast when target is far from FOV, but your mouse is in FOV.
+                            ['FOV-based Speed'] = { -- Move slower when target is farther from FOV
                                 ['Enabled'] = true,
-                                ['Speed'] = { {0.15, 0.25} } -- Randomized speed multiplier
+                                 ['Multiplier'] = 0.6
+                                 ['Randomize'] ={
+                                    ['Enabled'] = true,
+                                    ['Multipliers'] = { {0.15, 0.25} } -- Min / Max
+                                 }
                             },
 
                         },
@@ -262,7 +266,7 @@
                         },
 
                         ['Delay Settings'] = {
-                            ['Inital Delay'] = { -- Delay when you first shoot your triggerbot
+                            ['Initial Delay'] = { -- Delay when you first shoot your triggerbot
                                ['Enabled'] = false,
                                ['Delay'] = 0.5,
                                ['Randomize'] = {
