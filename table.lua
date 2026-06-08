@@ -1,6 +1,6 @@
     getgenv()['Prosper'] = {
                     ['Authentication'] = {
-                        ['Key'] = "KeyHere" -- put your key in for Luarmor
+                        ['Key'] = "hello" -- put your key in for Luarmor
                     },    
                     ["Extras"] = {
                         ["Mod Detector"] = true, -- Will kick you if a Mod is in-game
@@ -146,14 +146,10 @@
                         },
 
                         ['Humanize'] = { -- Passes clip checks
-                            ['Bezier Curves'] = { 
+                            ['Bezier Curves'] = {
                                 ['Enabled'] = true,
-                                ['Control Point'] = { -- Configurable bezier control point
-                                    ['Offset X'] = 2, 
-                                    ['Offset Y'] = 0, 
-                                    ['Offset Z'] = 0, 
-                                    ['Position'] = 'Midpoint', -- 'Midpoint' or 'Start' or 'End' - where to apply the offset from
-                                }
+                                ['Curve Intensity'] = 0.5, -- 0 = straight line, 1 = max curve
+                                ['Randomize Direction'] = true -- Randomizes where the curve goes
                             },
 
                             ['Deadzone Snappiness'] = {
@@ -167,14 +163,30 @@
 
                             ['Snap Delay'] = { -- Delay while snapping onto the person
                                 ['Enabled'] = false,
-                                ['Delay'] = 0.5, 
+
+                                ['Delay'] = 0.5,
+                                ['Multiplier'] = 1, -- How fast your camlock moves after the delay (higher = snappier, lower = smoother)
 
                                 ['Randomize'] = {
                                     ['Enabled'] = false,
-                                    ['Min'] = 0.5,
-                                    ['Max'] = 0.58
+                                    ['Delay'] = { {0.6, 0.7} } -- Min / Max
                                 }
-                            }      
+                            },
+
+                            ['Target Switch Delay'] = { -- Delay when switching to a different target
+                                ['Enabled'] = false,
+                                ['Delay'] = 0.2,
+                                ['Randomize'] = {
+                                    ['Enabled'] = false,
+                                    ['Delay'] = { {0.15, 0.25} } -- Min / Max
+                                }
+                            },
+
+                            ['FOV-based Speed'] = { -- Moves camlock slow/fast when target is far from FOV, but your mouse is in FOV.
+                                ['Enabled'] = true,
+                                ['Speed'] = { {0.15, 0.25} } -- Randomized speed multiplier
+                            },
+
                         },
 
                         ['Camera Aimbot Conditions'] = {
@@ -250,22 +262,31 @@
                         },
 
                         ['Delay Settings'] = {
-                            ['Delay Toggle'] = true, -- delay when you put ur mouse in the FOV    
-                            ['Delay'] = 0,  
-
-                            ['Randomize Mouse'] = { 
-                                ['Enabled'] = false,
-                                ['Min'] = 0.095,
-                                ['Max'] = 0.110
+                            ['Inital Delay'] = { -- Delay when you first shoot your triggerbot
+                               ['Enabled'] = false,
+                               ['Delay'] = 0.5,
+                               ['Randomize'] = {
+                                  ['Enabled'] = false,
+                                  ['Delay'] = { {0.6, 0.7} } -- Min / Max
+                               }
                             },
 
-                            ['Shoot Delay Toggle'] = true, -- delay when shooting your triggerbot
-                            ['Shoot Delay'] = 0,  
-                            
-                            ['Randomize Shoot'] = { 
-                                ['Enabled'] = false,
-                                ['Min'] = 0.097,
-                                ['Max'] = 0.112
+                            ['Mouse Delay'] = {
+                               ['Enabled'] = false, -- Delay when your mouse is inside your FOV before shooting
+                               ['Delay'] = 0.5,
+                               ['Randomize'] = {
+                                   ['Enabled'] = true,
+                                   ['Delay'] = { {0.6, 0.7} } -- Min / Max
+                               }
+                            },  
+
+                            ['Shoot Delay'] = {
+                               ['Enabled'] = false, -- Delay when shooting your triggerbot
+                               ['Delay'] = 0.5,
+                               ['Randomize'] = {
+                                   ['Enabled'] = true,
+                                   ['Delay'] = { {0.6, 0.7} } -- Min / Max
+                               }
                             }
                         },
 
@@ -274,8 +295,7 @@
                             ['Delay'] = 0.05, -- Delay before shooting back (0.05 = legit reaction time)
                             ['Randomize'] = {
                                 ['Enabled'] = true,
-                                ['Min'] = 0.03,
-                                ['Max'] = 0.08,
+                                ['Delay'] = { {0.6, 0.7} } -- Min / Max
                             },
                         },
 
@@ -326,15 +346,15 @@
                             ['Mode'] = "Normal", -- Normal // Randomizer
                             ['Double-Barrel SG'] = {
                                 ['Normal'] = { ['Multiplier'] = 0.2 },
-                                ['Randomizer'] = { ['Multipliers'] = { ['Min'] = 0.24, ['Max'] = 0.28 } }
+                                ['Randomizer'] = { ['Multipliers'] = { {0.3, 0.5} } } -- Min / Max
                             },
                             ['TacticalShotgun'] = {
                                 ['Normal'] = { ['Multiplier'] = 0 },
-                                ['Randomizer'] = { ['Multipliers'] = { ['Min'] = 0.24, ['Max'] = 0.28 } }
+                                ['Randomizer'] = { ['Multipliers'] = { {0.3, 0.5} } } -- Min / Max
                             },
                             ['Shotgun'] = {
                                 ['Normal'] = { ['Multiplier'] = 0 },
-                                ['Randomizer'] = { ['Multipliers'] = { ['Min'] = 0.24, ['Max'] = 0.28 } }
+                                ['Randomizer'] = { ['Multipliers'] = { {0.3, 0.5} } } -- Min / Max
                             }
                         },
 
@@ -394,7 +414,7 @@
                             ['[Double-Barrel SG]'] = 'Galaxy',
                             ['[TacticalShotgun]'] = 'Galaxy',
                             ['[Silencer]'] = 'Galaxy',
-                            ['[Knife]'] = 'Golden Age Tanto'
+                            ['[Knife]'] = 'Golden'
                         },
                     },
 
@@ -424,7 +444,7 @@
                     },
                     
                     ['Speed Modifications'] = {
-                     ['Enabled'] = true,
+                     ['Enabled'] = false,
                         ['Anti Trip'] = true,
                         ['Multipliers'] = {
                             ['Normal'] = { ['Multiplier'] = 35 },
