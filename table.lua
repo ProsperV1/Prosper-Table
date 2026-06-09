@@ -184,8 +184,8 @@
 
                             ['FOV-based Speed'] = { -- Move slower when target is farther from FOV
                                 ['Enabled'] = true,
-                                 ['Multiplier'] = 0.6
-                                 ['Randomize'] ={
+                                 ['Multiplier'] = 0.6,
+                                 ['Randomize'] = {
                                     ['Enabled'] = true,
                                     ['Multipliers'] = { {0.15, 0.25} } -- Min / Max
                                  }
