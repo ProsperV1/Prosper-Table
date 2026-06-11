@@ -391,7 +391,7 @@ getgenv()['Prosper'] = {
 
 			['Box'] = {
 				['Enabled'] = false,
-				['Type'] = 'Corner' -- Box // Corner (Box is a BOUNDING box so use ifyour fps isnt shit)
+				['Type'] = 'Corner' -- Box // Corner (Box is a BOUNDING box so use if your fps isnt shit)
 			},
 
 			['Health'] = {
