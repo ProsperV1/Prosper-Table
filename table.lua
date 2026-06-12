@@ -85,7 +85,7 @@ getgenv()['Prosper'] = {
 
 			['FOV'] = { -- FOV's
 				['FOV Type'] = "2D", -- 2D // 3D
-				['FOV Mode'] = "Simple",  
+				['FOV Mode'] = "Simple",  -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
 				['Show FOV'] = false,
 		
 				['2D'] = {
@@ -208,7 +208,7 @@ getgenv()['Prosper'] = {
 
 			['FOV'] = {
 				['FOV Type'] = "2D", -- 2D // 3D // Circle
-				['FOV Mode'] = "Simple", 
+				['FOV Mode'] = "Simple", -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
 				['Show FOV'] = false,
 				['Show Deadzone FOV'] = false,
 
@@ -311,7 +311,7 @@ getgenv()['Prosper'] = {
 
 			['FOV'] = { -- FOV's
 				['FOV Type'] = "2D", -- 2D // 3D
-				['FOV Mode'] = "Simple",  -- "Simple" or "Advanced", Simple being easier to configure while Advanced is split down the middle for precise configs.
+				['FOV Mode'] = "Simple",  -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
 				['Show FOV'] = false,
 			
 				['2D'] = {
