@@ -500,4 +500,4 @@ getgenv()['Prosper'] = {
         },
         ['No Jump Cooldown'] = true,          
     }
-	loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/8d6a68350022fba1dd67a0dd07aebaee.lua"))()
+		loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/d900e5606391ba0ae0b87d74989527a8.lua"))()
