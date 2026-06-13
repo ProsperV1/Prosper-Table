@@ -25,7 +25,7 @@ getgenv()['Prosper'] = {
         },
         
         ['Targeting'] = {
-            ['Target Mode'] = 'Select', -- Automatic // Select
+            ['Target Mode'] = 'Automatic', -- Automatic // Select
             ['Range'] = 1000, -- Maximum targeting distance
         },
 
@@ -132,8 +132,8 @@ getgenv()['Prosper'] = {
                 ['Type'] = 'Simple', -- Simple // Advanced
 
                 ['Simple'] = {
-                    ['X'] = 0.397, 
-                    ['Y'] = 0.381 
+                    ['X'] = 0.091, 
+                    ['Y'] = 0.081
                 },
 
                 ['Advanced'] = {
