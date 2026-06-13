@@ -456,10 +456,10 @@ getgenv()['Prosper'] = {
         ['Skin Changer'] = { -- changes ur skins (Client-sided)
             ['Enabled'] = true,
             ['Weapons'] = {
-                ['[Revolver]'] = 'Phoenix',
-                ['[Double-Barrel SG]'] = 'Phoenix',
-                ['[TacticalShotgun]'] = 'Pheonix',
-                ['[Knife]'] = 'Fishbone'
+                ['[Revolver]'] = 'Galaxy',
+                ['[Double-Barrel SG]'] = 'Galaxy',
+                ['[TacticalShotgun]'] = 'Galaxy',
+                ['[Knife]'] = 'Golden'
             },
             ['Beam'] = 'Rainbow' -- Hood Customs Only
         },
