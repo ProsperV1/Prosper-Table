@@ -1,6 +1,6 @@
 getgenv()['Prosper'] = {
         ['Authentication'] = {
-            ['Key'] = "KeyHere" -- put your key in for Luarmor
+            ['Key'] = "cNTOfqyiiGHRgIVBPIgWAGalNzPgbDLg" -- put your key in for Luarmor
         },    
         ['Extras'] = {
             ["Mod Detector"] = {
@@ -184,17 +184,33 @@ getgenv()['Prosper'] = {
                     ['Delay'] = 0.2,
                     ['Randomize'] = {
                         ['Enabled'] = false,
-                        ['Delay'] = { {0.15, 0.25} }
+                        ['Delay'] = { {0.15, 0.25} } -- Min / Max
                     }
                 },
 
                 ['FOV-based Speed'] = { -- Move slower/faster when target is farther from FOV
                     ['Enabled'] = false,
                         ['Multiplier'] = 0.6, -- Higher = Faster, Lower = Smoother
-                        ['Range Multipliers'] = { -- Multipliers based on how far away from your FOV 
+                        ['Range Multipliers'] = { -- Multipliers based on how far away from your FOV
                         ['Enabled'] = true,
                         ['Multipliers'] = { {0.15, 0.25} } -- Min / Max
                     }
+                },
+
+                ['Readjustment'] = { -- Temporarily stops camlock when clicking / triggerbot fires
+                    ['Enabled'] = true,
+                    ['Triggerbot'] = true, -- Stop when triggerbot fires
+                    ['Mouse Click'] = true, -- Stop when mouse is clicked
+                    ['Delay'] = 0.2,
+                    ['Randomize'] = {
+                        ['Enabled'] = false,
+                        ['Delay'] = { {0.15, 0.25} } -- Min / Max
+                    }
+                },
+
+                ['Mouse Blend'] = { -- Blends aimbot with your mouse movement
+                    ['Enabled'] = false,
+                    ['Blend Factor'] = 0.3, -- How much to blend (0 = aimbot-controlled , 1 = mouse-controlled)
                 },
 
             },
@@ -309,6 +325,16 @@ getgenv()['Prosper'] = {
                 },
             },
 
+            ['Shot Randomizer'] = { -- Randomize when triggerbot decides to fire
+                ['Enabled'] = false,
+                ['Delay'] = {0.1, 0.2}, -- Min / Max delay in seconds
+            },
+
+            ['Tracking Duration'] = { -- Triggerbot fires after you track the target for ['Duration'] in miliseconds
+                ['Enabled'] = false,
+                ['Duration'] = {0.1, 0.2}, -- Min / Max MS you HAVE to track before the tb fires
+            },
+
             ['FOV'] = { -- FOV's
                 ['FOV Type'] = "2D", -- 2D // 3D
                 ['FOV Mode'] = "Simple",  -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
@@ -390,14 +416,14 @@ getgenv()['Prosper'] = {
             ['OutlineColor'] = Color3.fromRGB(0, 0, 0),
 
             ['Box'] = {
-                ['Enabled'] = true,
+                ['Enabled'] = false,
                 ['Type'] = 'Corner' -- Box // Corner (Box is a Bounding Box so use if your fps isnt shit)
             },
 
             ['Health'] = {
-                ['Enabled'] = true,
+                ['Enabled'] = false,
                 ['Position'] = 'Bottom', -- Top // Bottom // Left // Right
-                ['Mode'] = 'Current Target', -- All // Current Target
+                ['Mode'] = 'All', -- All // Current Target
             },
 
             ['Distance'] = {
@@ -411,14 +437,14 @@ getgenv()['Prosper'] = {
                 ['Enabled'] = true,
                 ['Type'] = 'DisplayName', -- Name // DisplayName // Both
                 ['Position'] = 'Bottom', -- Top // Bottom // Left // Right
-                ['Font'] = "SourceSansBold", --[[ https://create.roblox.com/docs/reference/engine/enums/Font ]]
-                ['Size'] = 11,
+                ['Font'] = "GothamBold", --[[ https://create.roblox.com/docs/reference/engine/enums/Font ]]
+                ['Size'] = 9,
             },
 
             ['Armor'] = {
-                ['Enabled'] = true,
+                ['Enabled'] = false,
                 ['Position'] = 'Bottom', -- Top // Bottom // Left // Right
-                ['Mode'] = 'Current Target', -- All // Current Target
+                ['Mode'] = 'All', -- All // Current Target
             },
 
             ['Targeting'] = { -- Colors for who you're targeted at based on Target Modes
@@ -430,10 +456,10 @@ getgenv()['Prosper'] = {
         ['Skin Changer'] = { -- changes ur skins (Client-sided)
             ['Enabled'] = true,
             ['Weapons'] = {
-                ['[Revolver]'] = 'Galaxy',
-                ['[Double-Barrel SG]'] = 'Galaxy',
-                ['[TacticalShotgun]'] = 'Galaxy',
-                ['[Knife]'] = 'GPO-Knife Prestige'
+                ['[Revolver]'] = 'Phoenix',
+                ['[Double-Barrel SG]'] = 'Phoenix',
+                ['[TacticalShotgun]'] = 'Pheonix',
+                ['[Knife]'] = 'Fishbone'
             },
             ['Beam'] = 'Rainbow' -- Hood Customs Only
         },
@@ -474,5 +500,4 @@ getgenv()['Prosper'] = {
         },
         ['No Jump Cooldown'] = true,          
     }
-
 	loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/8d6a68350022fba1dd67a0dd07aebaee.lua"))()
