@@ -1,11 +1,11 @@
 getgenv()['Prosper'] = {
         ['Authentication'] = {
-            ['Key'] = "KeyHere" -- put your key in for Luarmor
+            ['Key'] = "cNTOfqyiiGHRgIVBPIgWAGalNzPgbDLg" -- put your key in for Luarmor
         },    
         ['Extras'] = {
             ["Mod Detector"] = {
                 ["Enabled"] = true,
-                ["Action"] = "Kick", -- Notify // Kick
+                ["Action"] = "Notify", -- Notify // Kick
             },   
         },
 
@@ -14,18 +14,25 @@ getgenv()['Prosper'] = {
             ["Korblox"] = true, 
         },
 
-        ["Binds"] = { 
-            ['Select'] = "C", 
-            ['Camera Aimbot'] = "C", 
-            ['Triggerbot'] = "C", 
-            ['ESP'] = "T",
-            ['Speed'] = "V", 
-            ['Panic Ground'] = "G",
-            ['Inventory Sorter'] = "F2",
+        ["Keybinds"] = { 
+            ['Combat'] = {
+               ['Target'] = "C", 
+               ['Camera Aimbot'] = "C", 
+               ['Triggerbot'] = "C",
+            },
+            
+            ['Visuals'] = { ['ESP'] = "T", },
+
+            ['Movement'] = {
+               ['Speed'] = "V", 
+               ['Panic Ground'] = "G",
+            },
+
+             ['Utilities'] = {  ['Inventory Sorter'] = "F2", },
         },
         
         ['Targeting'] = {
-            ['Target Mode'] = 'Automatic', -- Automatic // Select
+            ['Target Mode'] = 'Automatic', -- Automatic // Target
             ['Range'] = 1000, -- Maximum targeting distance
         },
 
@@ -44,7 +51,7 @@ getgenv()['Prosper'] = {
                 ['Distance Check'] = false, 
             },
         
-            ['Select'] = {  -- Select Mode Specific Checks
+            ['Target'] = {  -- Target Mode Specific Checks
                 ['Visible Check'] = false, 
                 ['Distance Check'] = false, 
                 ['Visible While Targeted'] = true
@@ -89,27 +96,21 @@ getgenv()['Prosper'] = {
                 ['Show FOV'] = false,
         
                 ['2D'] = {
-                    ['Simple'] = {
-                        ['X'] = 2,
-                        ['Y'] = 2
-                    },
-                    ['Advanced'] = {
-                        ['X Left'] = 0.43,  ['X Right'] = 0.43,
-                        ["Y Upper"] = 0.57, ["Y Lower"] = 0.76
+                    ['Simple'] = { {1, 2} }, -- X // Y
+                    
+                    ['Advanced'] = { 
+                        ['X'] = {1, 2},-- Left // Right
+                        ['Y'] = {1, 2},-- Up // Down
                     }
                 },
 
                 ['3D'] = {
-                    ['Simple'] = {
-                        ['X'] = 16.45,
-                        ['Y'] = 16.55,
-                        ['Z'] = 16.15
-                    },
-        
+                    ['Simple'] = {3, 5, 3}, -- X // Y // Z
+
                     ['Advanced'] = {
-                        ["X Left"] = 6, ["X Right"] = 6,
-                        ["Y Upper"] = 6, ["Y Lower"] = 6,
-                        ["Z Left"] = 6, ["Z Right"] = 6
+                        ['X'] = {1.5, 1.8}, -- Left // Right 
+                        ['Y'] = {1, 2},  -- Up // Down
+                        ['Z'] = {1, 2}, -- Left // Right (Side of Player)
                     }
                 }
             }
@@ -122,7 +123,7 @@ getgenv()['Prosper'] = {
 
         ['Camera Aimbot'] = {
             ['Enabled'] = true, 
-            ['Mode'] = "Always", -- Toggle / Hold / Always
+            ['Mode'] = "Toggle", -- Toggle / Hold / Always
             ['Sticky'] = false, 
             ['Hit Point'] = "Surface",  -- Surface // Scaled // Part Name
             ['Scaled'] = { ['Scale'] = 0.2 },
@@ -131,16 +132,10 @@ getgenv()['Prosper'] = {
                 ['Enabled'] = true,
                 ['Type'] = 'Simple', -- Simple // Advanced
 
-                ['Simple'] = {
-                    ['X'] = 0.091, 
-                    ['Y'] = 0.081
-                },
+                ['Simple'] = { {0.124, 0.111} }, -- X // Y
 
                 ['Advanced'] = {
-                    ['Strength'] = { -- This is how strong it will correct when you pull ur camera aimbot back
-                        ['X Strength'] = 0.24,
-                        ['Y Strength'] = 0.24
-                    },
+                    ['Strength'] = { {0.24, 0.26} }, -- X // Y 
 
                     ['Sensitivity'] = 0.22 -- This is how fast / slow the camera aimbot moves (Like sensitivity)
                 }
@@ -161,10 +156,7 @@ getgenv()['Prosper'] = {
                 ['Deadzone Snappiness'] = {
                     ['Enabled'] = true,
 
-                    ['Deadzone Multiplier'] = { -- Slowdown when close (higher = snappier, lower = smoother)
-                        ['X'] = 1.84,
-                        ['Y'] = 1.79
-                    }
+                    ['Deadzone Multiplier'] = { {1.23, 1.15} } -- X // Y
                 },
 
                 ['Snap Delay'] = { -- Delay while snapping onto the person
@@ -198,7 +190,7 @@ getgenv()['Prosper'] = {
                 },
 
                 ['Readjustment'] = { -- Temporarily stops camlock when clicking / triggerbot fires
-                    ['Enabled'] = true,
+                    ['Enabled'] = false,
                     ['Triggerbot'] = true, -- Stop when triggerbot fires
                     ['Mouse Click'] = true, -- Stop when mouse is clicked
                     ['Delay'] = 0.2,
@@ -210,7 +202,7 @@ getgenv()['Prosper'] = {
 
                 ['Mouse Blend'] = { -- Blends aimbot with your mouse movement
                     ['Enabled'] = false,
-                    ['Blend Factor'] = 0.3, -- How much to blend (0 = aimbot-controlled , 1 = mouse-controlled)
+                    ['Blend Factor'] = 0.3, -- How much to blend (0 = aimbot-controlled,1 = mouse-controlled)
                 },
 
             },
@@ -223,61 +215,50 @@ getgenv()['Prosper'] = {
             },
 
             ['FOV'] = {
-                ['FOV Type'] = "2D", -- 2D // 3D // Circle
+                ['FOV Type'] = "Circle", -- 2D // 3D // Circle
                 ['FOV Mode'] = "Simple", -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
                 ['Show FOV'] = false,
                 ['Show Deadzone FOV'] = false,
 
-                ['Circle'] = { ['Radius'] = 165,  ['Deadzone Radius'] = 35 },
+                ['Circle'] = { ['Radius'] = 565,  ['Deadzone Radius'] = 235 },
 
                 ['2D'] = {
-                    ['Simple'] = {
-                        ['X'] = 3,
-                        ['Y'] = 3
-                    },
+                    ['Simple'] = { {1, 2} }, -- X // Y
                     ['Advanced'] = {
-                        ['X Left'] = 6,  ['X Right'] = 6,
-                        ["Y Upper"] = 6, ["Y Lower"] = 6
+                        ['X'] = {1, 2}, -- Left // Right
+                        ['Y'] = {1, 2}, -- Up // Down
                     },
                     ['Deadzone'] = {
-                        ['Mode'] = "Simple", 
-                        ['Simple'] = {
-                            ['X'] = 2,
-                            ['Y'] = 2
-                        },
+                        ['Mode'] = "Simple",
+                        ['Simple'] = { {1, 2} }, -- X // Y
                         ['Advanced'] = {
-                            ['X Left'] = 3,  ['X Right'] = 3,
-                            ["Y Upper"] = 3, ["Y Lower"] = 3
+                            ['X'] = {1, 2}, -- Left // Right
+                            ['Y'] = {1, 2}, -- Up // Down
                         }
                     }
                 },
 
                 ['3D'] = {
-                    ['Simple'] = {
-                        ['X'] = 16.45,
-                        ['Y'] = 16.55,
-                        ['Z'] = 16.15
-                    },
+                    ['Simple'] = {3, 5, 3}, -- X // Y // Z
+
                     ['Advanced'] = {
-                        ["X Left"] = 1, ["X Right"] = 6,
-                        ["Y Upper"] = 6, ["Y Lower"] = 6,
-                        ["Z Left"] = 6, ["Z Right"] = 6
+                        ['X'] = {1.5, 1.8}, -- Left // Right 
+                        ['Y'] = {1, 2},  -- Up // Down
+                        ['Z'] = {1, 2}, -- Left // Right (Side of Player)
                     },
+
                     ['Deadzone'] = {
                         ['Mode'] = "Simple", 
-                        ['Simple'] = {
-                            ['X'] = 4,
-                            ['Y'] = 4,
-                            ['Z'] = 4
-                        },
-                        ['Advanced'] = {
-                            ["X Left"] = 2, ["X Right"] = 2,
-                            ["Y Upper"] = 2, ["Y Lower"] = 2,
-                            ["Z Left"] = 2, ["Z Right"] = 2
-                        }
-                    }
-                }
-            }
+                        ['Simple'] = {3, 5, 3}, -- X // Y // Z
+
+                      ['Advanced'] = {
+                         ['X'] = {1.5, 1.8}, -- Left // Right 
+                         ['Y'] = {1, 2},  -- Up // Down
+                         ['Z'] = {1, 2}, -- Left // Right (Side of Player)
+                      },
+                    },
+                },
+            },
         },
 
         ['Trigger Bot'] = {
@@ -325,46 +306,44 @@ getgenv()['Prosper'] = {
                 },
             },
 
-            ['Shot Randomizer'] = { -- Randomize when triggerbot decides to fire
+            ['Tracking Duration'] = { -- Only fire after tracking target for X ms
                 ['Enabled'] = false,
-                ['Delay'] = {0.1, 0.2}, -- Min / Max delay in seconds
+                ['Duration'] = {0.6, 0.7}, -- Min / Max MS to track before firing
             },
 
-            ['Tracking Duration'] = { -- Triggerbot fires after you track the target for ['Duration'] in miliseconds
+            ['Target Switch Delay'] = { -- Delay when switching to a different target
                 ['Enabled'] = false,
-                ['Duration'] = {0.1, 0.2}, -- Min / Max MS you HAVE to track before the tb fires
+                ['Delay'] = 0.2,
+                ['Randomize'] = {
+                    ['Enabled'] = false,
+                    ['Delay'] = { {0.15, 0.25} } -- Min / Max
+                }
             },
 
             ['FOV'] = { -- FOV's
                 ['FOV Type'] = "2D", -- 2D // 3D
                 ['FOV Mode'] = "Simple",  -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
                 ['Show FOV'] = false,
-            
+        
                 ['2D'] = {
-                    ['Simple'] = {
-                        ['X'] = 5,
-                        ['Y'] = 5
-                    },
-                    ['Advanced'] = {
-                        ['X Left'] = 6,  ['X Right'] = 6,
-                        ["Y Upper"] = 6, ["Y Lower"] = 6
+                    ['Simple'] = { {1, 2} }, -- X // Y
+                    
+                    ['Advanced'] = { 
+                        ['X'] = {1, 2},-- Left // Right
+                        ['Y'] = {1, 2},-- Up // Down
                     }
                 },
 
                 ['3D'] = {
-                    ['Simple'] = {
-                        ['X'] = 16.45,
-                        ['Y'] = 16.55,
-                        ['Z'] = 16.15
-                    },
-            
+                    ['Simple'] = {3, 5, 3}, -- X // Y // Z
+
                     ['Advanced'] = {
-                        ["X Left"] = 6, ["X Right"] = 6,
-                        ["Y Upper"] = 6, ["Y Lower"] = 6,
-                        ["Z Left"] = 6, ["Z Right"] = 6
+                        ['X'] = {1.5, 1.8}, -- Left // Right 
+                        ['Y'] = {1, 2},  -- Up // Down
+                        ['Z'] = {1, 2}, -- Left // Right (Side of Player)
                     }
                 }
-            }
+            },
         },
 
         ['Gun Modifications'] = {
@@ -448,7 +427,7 @@ getgenv()['Prosper'] = {
             },
 
             ['Targeting'] = { -- Colors for who you're targeted at based on Target Modes
-                ['Select'] = Color3.fromRGB(0, 255, 0),
+                ['Target'] = Color3.fromRGB(0, 255, 0),
                 ['Automatic'] = Color3.fromRGB(255, 0, 0)
             },
         },
@@ -466,7 +445,7 @@ getgenv()['Prosper'] = {
 
         ['Wall Jump'] = {
             ['Enabled'] = true,
-            ['Mode'] = 'Double', -- Infinite or Double
+            ['Mode'] = 'Infinite', -- Infinite or Double
             ['Multipliers'] = {
                 ['Regular'] = { ['Multiplier'] = 1.2 },
                 ['Knife'] = { ['Multiplier'] = 1.4 },
@@ -500,4 +479,4 @@ getgenv()['Prosper'] = {
         },
         ['No Jump Cooldown'] = true,          
     }
-		loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/d900e5606391ba0ae0b87d74989527a8.lua"))()
+   loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/d900e5606391ba0ae0b87d74989527a8.lua"))()
