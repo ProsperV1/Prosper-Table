@@ -5,7 +5,7 @@ getgenv()['Prosper'] = {
         ['Extras'] = {
             ["Mod Detector"] = {
                 ["Enabled"] = true,
-                ["Action"] = "Notify", -- Notify // Kick
+                ["Action"] = "Kick", -- Notify // Kick
             },   
         },
 
@@ -86,7 +86,7 @@ getgenv()['Prosper'] = {
         },
 
         ['Silent Aimbot'] = {
-            ['Enabled'] = true, 
+            ['Enabled'] = false, 
             ['Hit Point'] = "Surface",  -- Surface // Scaled // Part Name
             ['Scaled'] = { ['Scale'] = 0.1 },
 
@@ -123,7 +123,7 @@ getgenv()['Prosper'] = {
 
         ['Camera Aimbot'] = {
             ['Enabled'] = true, 
-            ['Mode'] = "Toggle", -- Toggle / Hold / Always
+            ['Mode'] = 'Hold', -- Toggle / Hold / Always
             ['Sticky'] = false, 
             ['Hit Point'] = "Surface",  -- Surface // Scaled // Part Name
             ['Scaled'] = { ['Scale'] = 0.2 },
@@ -306,9 +306,13 @@ getgenv()['Prosper'] = {
                 },
             },
 
-            ['Tracking Duration'] = { -- Only fire after tracking target for X ms
+            ['Tool Switch Delay'] = { -- Delay after switching to a new weapon before firing
                 ['Enabled'] = false,
-                ['Duration'] = {0.6, 0.7}, -- Min / Max MS to track before firing
+                ['Delay'] = 0.3,
+                ['Randomize'] = {
+                    ['Enabled'] = false,
+                    ['Delay'] = { {0.2, 0.4} } -- Min / Max
+                }
             },
 
             ['Target Switch Delay'] = { -- Delay when switching to a different target
@@ -350,9 +354,9 @@ getgenv()['Prosper'] = {
             ['Delay Changer'] = {
                 ['Enabled'] = false,
                 ['Weapons'] = {
-                    ['[Double-Barrel SG]'] = { ['Value'] = 0.37 },
-                    ['[Revolver]'] = { ['Value'] = 0.67 },
-                    ['[TacticalShotgun]'] = { ['Value'] = 1.0 },
+                    ['[Double-Barrel SG]'] = { ['Multiplier'] = 0.37 },
+                    ['[Revolver]'] = { ['Multiplier'] = 0.67 },
+                    ['[TacticalShotgun]'] = { ['Multiplier'] = 1.0 },
                 }
             },
 
@@ -435,10 +439,10 @@ getgenv()['Prosper'] = {
         ['Skin Changer'] = { -- changes ur skins (Client-sided)
             ['Enabled'] = true,
             ['Weapons'] = {
-                ['[Revolver]'] = 'Galaxy',
-                ['[Double-Barrel SG]'] = 'Galaxy',
-                ['[TacticalShotgun]'] = 'Galaxy',
-                ['[Knife]'] = 'Golden'
+                ['[Revolver]'] = 'Shiryus Breath',
+                ['[Double-Barrel SG]'] = 'Shiryus Breath',
+                ['[TacticalShotgun]'] = 'Shiryus Breath',
+                ['[Knife]'] = 'Bitcoin'
             },
             ['Beam'] = 'Rainbow' -- Hood Customs Only
         },
@@ -479,4 +483,5 @@ getgenv()['Prosper'] = {
         },
         ['No Jump Cooldown'] = true,          
     }
-   loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/d900e5606391ba0ae0b87d74989527a8.lua"))()
+
+	 loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/d900e5606391ba0ae0b87d74989527a8.lua"))()
