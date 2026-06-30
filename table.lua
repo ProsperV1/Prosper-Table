@@ -36,7 +36,6 @@ getgenv()['Prosper'] = {
             ['Range'] = 1000, -- Maximum targeting distance
         },
 
-
         ["Universal Checks"] = {
             ['Knock Check'] = true, 
             ['Self Knock Check'] = true, 
@@ -63,7 +62,7 @@ getgenv()['Prosper'] = {
             ['Whitelisted'] = { 
                 ['Silent Aimbot'] = { '[Double-Barrel SG]', '[Revolver]', '[TacticalShotgun]', '[Silencer]' },
                 ['Camera Aimbot'] = { '[Double-Barrel SG]', '[Revolver]', '[TacticalShotgun]', '[Silencer]', '[Knife]' },
-                ['Trigger Bot']   = { '[Double-Barrel SG]', '[Revolver]', '[TacticalShotgun]', '[Silencer]' },
+                ['Trigger Bot'] = { '[Double-Barrel SG]', '[Revolver]', '[TacticalShotgun]', '[Silencer]' },
             },
             ['Activation Range'] = { 
                 ['[Double-Barrel SG]'] = 114,
@@ -86,7 +85,7 @@ getgenv()['Prosper'] = {
         },
 
         ['Silent Aimbot'] = {
-            ['Enabled'] = false, 
+            ['Enabled'] = false,
             ['Hit Point'] = "Surface",  -- Surface // Scaled // Part Name
             ['Scaled'] = { ['Scale'] = 0.1 },
 
@@ -122,9 +121,9 @@ getgenv()['Prosper'] = {
         },
 
         ['Camera Aimbot'] = {
-            ['Enabled'] = true, 
-            ['Mode'] = 'Hold', -- Toggle / Hold / Always
-            ['Sticky'] = false, 
+            ['Enabled'] = true,
+            ['Mode'] = "Hold", -- Toggle / Hold / Always
+            ['Sticky'] = false,
             ['Hit Point'] = "Surface",  -- Surface // Scaled // Part Name
             ['Scaled'] = { ['Scale'] = 0.2 },
 
@@ -132,12 +131,12 @@ getgenv()['Prosper'] = {
                 ['Enabled'] = true,
                 ['Type'] = 'Simple', -- Simple // Advanced
 
-                ['Simple'] = { {0.124, 0.111} }, -- X // Y
+                ['Simple'] = { {0.104, 0.111} }, -- X // Y
 
                 ['Advanced'] = {
                     ['Strength'] = { {0.24, 0.26} }, -- X // Y 
 
-                    ['Sensitivity'] = 0.22 -- This is how fast / slow the camera aimbot moves (Like sensitivity)
+                    ['Sensitivity'] = 0.22 -- This is how fast / slow the Camera aimbot moves (Like sensitivity)
                 }
             },
 
@@ -192,7 +191,7 @@ getgenv()['Prosper'] = {
                 ['Readjustment'] = { -- Temporarily stops camlock when clicking / triggerbot fires
                     ['Enabled'] = false,
                     ['Triggerbot'] = true, -- Stop when triggerbot fires
-                    ['Mouse Click'] = true, -- Stop when mouse is clicked
+                    ['Mouse Click'] = true, -- Stop when Mouse is clicked
                     ['Delay'] = 0.2,
                     ['Randomize'] = {
                         ['Enabled'] = false,
@@ -200,9 +199,22 @@ getgenv()['Prosper'] = {
                     }
                 },
 
-                ['Mouse Blend'] = { -- Blends aimbot with your mouse movement
+                ['Tracking Readjustment'] = { -- Tempororaily stops camlock after crosshair has been on body for a delay, then retracks faster
                     ['Enabled'] = false,
-                    ['Blend Factor'] = 0.3, -- How much to blend (0 = aimbot-controlled,1 = mouse-controlled)
+                    ['Tracking Time'] = 0.3, -- How long crosshair must be on body before stopping 
+                    ['Stop Time'] = 0.2, -- How long to stop tracking
+                    ['Retrack Multiplier'] = 1.5, -- How much faster to retrack after break (higher = snappier)
+                    ['Randomize'] = {
+                        ['Enabled'] = false,
+                        ['Tracking Time'] = { {0.25, 0.35} }, -- Min / Max
+                        ['Stop Time'] = { {0.15, 0.25} }, -- Min / Max
+                        ['Retrack Multiplier'] = { {1.3, 1.7} } -- Min / Max
+                    }
+                },
+
+                ['Mouse Blend'] = { -- Blends aimbot with your Mouse movement
+                    ['Enabled'] = false,
+                    ['Blend Factor'] = 0.3, -- How much to blend (0 = aimbot-controlled,1 = Mouse-controlled)
                 },
 
             },
@@ -279,7 +291,7 @@ getgenv()['Prosper'] = {
                 },
 
                 ['Mouse Delay'] = {
-                    ['Enabled'] = false, -- Delay when your mouse is inside your FOV before shooting
+                    ['Enabled'] = false, -- Delay when your Mouse is inside your FOV before shooting
                     ['Delay'] = 0.5,
                     ['Randomize'] = {
                         ['Enabled'] = true,
@@ -297,14 +309,6 @@ getgenv()['Prosper'] = {
                 }
             },
 
-            ['Host Shoot'] = { -- Turns on triggerbot when host shoots gun
-                ['Enabled'] = false,
-                ['Delay'] = 0.05, -- Delay before shooting back (0.05 = legit reaction time)
-                ['Randomize'] = {
-                    ['Enabled'] = true,
-                    ['Delay'] = { {0.6, 0.7} } -- Min / Max
-                },
-            },
 
             ['Tool Switch Delay'] = { -- Delay after switching to a new weapon before firing
                 ['Enabled'] = false,
@@ -392,25 +396,24 @@ getgenv()['Prosper'] = {
 
         },
 
-
         ['ESP'] = {
             ['Enabled'] = true,
             ['Color'] = Color3.fromRGB(255, 255, 255),
             ['OutlineColor'] = Color3.fromRGB(0, 0, 0),
 
             ['Box'] = {
-                ['Enabled'] = false,
-                ['Type'] = 'Corner' -- Box // Corner (Box is a Bounding Box so use if your fps isnt shit)
+                ['Enabled'] = true,
+                ['Type'] = 'Box' -- Box // Corner (Box is a Bounding Box so use if your fps isnt shit)
             },
 
             ['Health'] = {
-                ['Enabled'] = false,
-                ['Position'] = 'Bottom', -- Top // Bottom // Left // Right
+                ['Enabled'] = true,
+                ['Position'] = 'Left', -- Top // Bottom // Left // Right
                 ['Mode'] = 'All', -- All // Current Target
             },
 
             ['Distance'] = {
-                ['Enabled'] = false,
+                ['Enabled'] = true,
                 ['Position'] = 'Bottom', -- Top // Bottom // Left // Right
                 ['Font'] = "GothamBold", --[[ https://create.roblox.com/docs/reference/engine/enums/Font ]]
                 ['Size'] = 9,
@@ -425,8 +428,8 @@ getgenv()['Prosper'] = {
             },
 
             ['Armor'] = {
-                ['Enabled'] = false,
-                ['Position'] = 'Bottom', -- Top // Bottom // Left // Right
+                ['Enabled'] = true,
+                ['Position'] = 'Left', -- Top // Bottom // Left // Right
                 ['Mode'] = 'All', -- All // Current Target
             },
 
@@ -439,17 +442,17 @@ getgenv()['Prosper'] = {
         ['Skin Changer'] = { -- changes ur skins (Client-sided)
             ['Enabled'] = true,
             ['Weapons'] = {
-                ['[Revolver]'] = 'Shiryus Breath',
-                ['[Double-Barrel SG]'] = 'Shiryus Breath',
-                ['[TacticalShotgun]'] = 'Shiryus Breath',
-                ['[Knife]'] = 'Bitcoin'
+                ['[Revolver]'] = 'Valentine',
+                ['[Double-Barrel SG]'] = 'Valentine',
+                ['[TacticalShotgun]'] = 'Inferno',
+                ['[Knife]'] = 'Red Tiger'
             },
             ['Beam'] = 'Rainbow' -- Hood Customs Only
         },
 
         ['Wall Jump'] = {
             ['Enabled'] = true,
-            ['Mode'] = 'Infinite', -- Infinite or Double
+            ['Mode'] = 'Double', -- Infinite or Double
             ['Multipliers'] = {
                 ['Regular'] = { ['Multiplier'] = 1.2 },
                 ['Knife'] = { ['Multiplier'] = 1.4 },
@@ -484,4 +487,4 @@ getgenv()['Prosper'] = {
         ['No Jump Cooldown'] = true,          
     }
 
-	 loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/d900e5606391ba0ae0b87d74989527a8.lua"))()
+   loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/d900e5606391ba0ae0b87d74989527a8.lua"))()
