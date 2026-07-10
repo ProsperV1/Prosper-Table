@@ -212,10 +212,10 @@ getgenv()['Prosper'] = {
             ['FOV'] = {
                 ['FOV Type'] = "Circle", -- 2D // 3D // Circle
                 ['FOV Mode'] = "Simple", -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
-                ['Show FOV'] = true,
-                ['Show Deadzone FOV'] = true,
+                ['Show FOV'] = false,
+                ['Show Deadzone FOV'] = false,
 
-                ['Circle'] = { ['Radius'] = 565,  ['Deadzone Radius'] = 235 },
+                ['Circle'] = { ['Radius'] = 165,  ['Deadzone Radius'] = 35 },
 
                 ['2D'] = {
                     ['Simple'] = { {1, 2} }, -- X // Y
