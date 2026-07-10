@@ -59,45 +59,48 @@ getgenv()['Prosper'] = {
         
 
         ['Weapons'] = {
-            ['Whitelisted'] = { 
-                ['Silent Aimbot'] = { '[Double-Barrel SG]', '[Revolver]', '[TacticalShotgun]', '[Silencer]' },
-                ['Camera Aimbot'] = { '[Double-Barrel SG]', '[Revolver]', '[TacticalShotgun]', '[Silencer]', '[Knife]' },
-                ['Trigger Bot'] = { '[Double-Barrel SG]', '[Revolver]', '[TacticalShotgun]', '[Silencer]' },
+            ['Whitelisted'] = { -- Weapons that will work when you use a certain feature.
+                ['Silent Aimbot'] = { '[Revolver]', '[Double-Barrel SG]', '[TacticalShotgun]', '[Silencer]' },
+                ['Camera Aimbot'] = { '[Revolver]', '[Double-Barrel SG]', '[TacticalShotgun]', '[Silencer]', '[Knife]' },
+                ['Trigger Bot'] = { '[Revolver]', '[Double-Barrel SG]', '[TacticalShotgun]', '[Silencer]' },
             },
-            ['Activation Range'] = { 
+            ['Activation Range'] = { -- Features activate based on your weapon's range.
+                ['[Revolver]'] = 200,
                 ['[Double-Barrel SG]'] = 114,
                 ['[TacticalShotgun]'] = 100,
-                ['[Revolver]'] = 200,
                 ['[Silencer]'] = 164,
             },
-            
-            ['Future'] = { 
+
+            ['Future'] = { -- Helps with blanking, use when raging though.
                 ['Guns'] = {
-                    ['[Double-Barrel SG]'] = { ['Enabled'] = false },
                     ['[Revolver]'] = { ['Enabled'] = false },
+                    ['[Double-Barrel SG]'] = { ['Enabled'] = false },
                     ['[TacticalShotgun]'] = { ['Enabled'] = false },
                 }
             },
         },
 
-        ['Force Shoot'] = {
-            ['Enabled'] = false, -- Used for raging.
+        ['Rage Mode'] = {
+            ['Enabled'] = false, -- Meant for raging.
         },
 
         ['Silent Aimbot'] = {
             ['Enabled'] = true,
-            ['Hit Point'] = "Surface",  -- Surface // Scaled // Part Name
-            ['Scaled'] = { ['Scale'] = 0.1 },
+            ['Hit Part'] = "Closest",  -- Closest // Part Name
+            ['Closest'] = {
+                ['Mode'] = "Point", -- Part // Point
+                ['Scale'] = {true, 0.1} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
+            },
 
             ['FOV'] = { -- FOV's
                 ['FOV Type'] = "2D", -- 2D // 3D
                 ['FOV Mode'] = "Simple",  -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
-                ['Show FOV'] = false,
-        
+                ['Show FOV'] = true,
+
                 ['2D'] = {
                     ['Simple'] = { {1, 2} }, -- X // Y
-                    
-                    ['Advanced'] = { 
+
+                    ['Advanced'] = {
                         ['X'] = {1, 2},-- Left // Right
                         ['Y'] = {1, 2},-- Up // Down
                     }
@@ -107,7 +110,7 @@ getgenv()['Prosper'] = {
                     ['Simple'] = {3, 5, 3}, -- X // Y // Z
 
                     ['Advanced'] = {
-                        ['X'] = {1.5, 1.8}, -- Left // Right 
+                        ['X'] = {1.5, 1.8}, -- Left // Right
                         ['Y'] = {1, 2},  -- Up // Down
                         ['Z'] = {1, 2}, -- Left // Right (Side of Player)
                     }
@@ -122,10 +125,14 @@ getgenv()['Prosper'] = {
 
         ['Camera Aimbot'] = {
             ['Enabled'] = true,
-            ['Mode'] = "Hold", -- Toggle / Hold / Always
+            ['Mode'] = "Always", -- Toggle / Hold / Always
             ['Sticky'] = false,
-            ['Hit Point'] = "Surface",  -- Surface // Scaled // Part Name
-            ['Scaled'] = { ['Scale'] = 0.2 },
+            ['Hit Part'] = "Closest",  -- Closest // Part Name
+             ['Closest'] = {
+                ['Mode'] = "Point", -- Part // Point
+                ['Scale'] = {true, 0.1} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
+            },
+
 
             ['Snappiness'] = { 
                 ['Enabled'] = true,
@@ -147,84 +154,50 @@ getgenv()['Prosper'] = {
 
             ['Humanize'] = { -- Passes clip checks
                 ['Bezier Curves'] = {
-                    ['Enabled'] = false,
-                    -- Control Point Count: 1 = one control point, 2 = two control points, 3 = three control points
-                    ['Control Point Count'] = 2,
+                    ['Enabled'] = true,
+                    ['Mode'] = "2", -- Mode is 1-3, 1 being the least legit curve while 3 being the most legit curve
                     ['Speed Multiplier'] = 0.7, -- Lower = slower curve (less blatant), 1 = same speed as normal
-                    ['Control Point Offsets'] = { 
-                        -- If your point count = 1 then it will only use your first value, vice versa
-                        -- 0 = no curve, positive = right/up/forward, negative = left/down/backward
-                        -- Bigger number = wider curve
-
-                        ['Offset X'] = { 1.5, -2, 1 }, -- Right / Left
-                        ['Offset Y'] = { 0.8, -1.2, 0.4 }, -- Up / Down
-                        ['Offset Z'] = { -0.5, 1, -0.3 }, -- Forward / Backward (adds depth)
-                    },
                 },
 
-                ['Deadzone Snappiness'] = {
+                ['Deadzone Smoothing'] = {
                     ['Enabled'] = true,
-
-                    ['Deadzone Multiplier'] = { {1.23, 1.15} } -- X // Y
+                    ['Smoothing'] = { {0.5, 0.5} } -- X // Y 
                 },
 
                 ['Snap Delay'] = { -- Delay while snapping onto the person
                     ['Enabled'] = false,
-
-                    ['Delay'] = 0.5,
+                    ['Delay'] = { {0.5, 0.7} }, -- Min / Max 
                     ['Multiplier'] = 1, -- How fast your camlock moves after the delay (higher = snappier, lower = smoother)
-
-                    ['Randomize'] = {
-                        ['Enabled'] = false,
-                        ['Delay'] = { {0.6, 0.7} } -- Min / Max
-                    }
                 },
 
                 ['Target Switch Delay'] = { -- Delay when switching to a different target
                     ['Enabled'] = false,
-                    ['Delay'] = 0.2,
-                    ['Randomize'] = {
-                        ['Enabled'] = false,
-                        ['Delay'] = { {0.15, 0.25} } -- Min / Max
-                    }
+                    ['Delay'] = { {0.15, 0.25} } -- Min / Max 
                 },
 
-                ['FOV-based Speed'] = { -- Move slower/faster when target is farther from FOV
+                ['Distance-based Speed'] = { -- Move faster when closer to target
                     ['Enabled'] = false,
-                        ['Multiplier'] = 0.6, -- Higher = Faster, Lower = Smoother
-                        ['Range Multipliers'] = { -- Multipliers based on how far away from your FOV
-                        ['Enabled'] = true,
-                        ['Multipliers'] = { {0.15, 0.25} } -- Min / Max
-                    }
+                    ['Base Speed'] = 0.6, -- Base speed multiplier
+                    ['Distance Range'] = {10, 100}, -- Studs (Min distance for max speed, Max distance for min speed)
                 },
 
                 ['Readjustment'] = { -- Temporarily stops camlock when clicking / triggerbot fires
                     ['Enabled'] = false,
                     ['Triggerbot'] = true, -- Stop when triggerbot fires
                     ['Mouse Click'] = true, -- Stop when Mouse is clicked
-                    ['Delay'] = 0.2,
-                    ['Randomize'] = {
-                        ['Enabled'] = false,
-                        ['Delay'] = { {0.15, 0.25} } -- Min / Max
-                    }
+                    ['Delay'] = { {0.15, 0.25} }, -- Min / Max
                 },
 
-                ['Tracking Readjustment'] = { -- Tempororaily stops camlock after crosshair has been on body for a delay, then retracks faster
+                ['Tracking Readjustment'] = { -- Temporarily stops camlock after crosshair has been on body for a delay, then retracks faster
                     ['Enabled'] = false,
-                    ['Tracking Time'] = 0.3, -- How long crosshair must be on body before stopping 
-                    ['Stop Time'] = 0.2, -- How long to stop tracking
-                    ['Retrack Multiplier'] = 1.5, -- How much faster to retrack after break (higher = snappier)
-                    ['Randomize'] = {
-                        ['Enabled'] = false,
-                        ['Tracking Time'] = { {0.25, 0.35} }, -- Min / Max
-                        ['Stop Time'] = { {0.15, 0.25} }, -- Min / Max
-                        ['Retrack Multiplier'] = { {1.3, 1.7} } -- Min / Max
-                    }
+                    ['Tracking Time'] = { {0.25, 0.35} }, -- Min / Max (How long crosshair must be on body before stopping)
+                    ['Stop Time'] = { {0.15, 0.25} }, -- Min / Max (How long to stop tracking)
+                    ['Retrack Multiplier'] = { {1.3, 1.7} }, -- Min / Max (How much faster to retrack after break, higher = snappier)
                 },
 
                 ['Mouse Blend'] = { -- Blends aimbot with your Mouse movement
                     ['Enabled'] = false,
-                    ['Blend Factor'] = 0.3, -- How much to blend (0 = aimbot-controlled,1 = Mouse-controlled)
+                    ['Blend Factor'] = 0.3, -- How much to blend (0 = aimbot-controlled, 1 = Mouse-controlled)
                 },
 
             },
@@ -239,8 +212,8 @@ getgenv()['Prosper'] = {
             ['FOV'] = {
                 ['FOV Type'] = "Circle", -- 2D // 3D // Circle
                 ['FOV Mode'] = "Simple", -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
-                ['Show FOV'] = false,
-                ['Show Deadzone FOV'] = false,
+                ['Show FOV'] = true,
+                ['Show Deadzone FOV'] = true,
 
                 ['Circle'] = { ['Radius'] = 565,  ['Deadzone Radius'] = 235 },
 
@@ -286,56 +259,47 @@ getgenv()['Prosper'] = {
         ['Trigger Bot'] = {
             ['Enabled'] = true, -- Trigger Bot toggle
             ['Settings'] = {
-                ['Mode'] = "Hold", -- Always // Hold // Toggle 
+                ['Mode'] = "Hold", -- Always // Hold // Toggle
                 ['Type'] = "Exact" -- FOV // Exact
             },
 
-            ['Delay Settings'] = {
-                ['Initial Delay'] = { -- Delay when you first shoot your triggerbot
-                    ['Enabled'] = false,
-                    ['Delay'] = 0.5,
-                    ['Randomize'] = {
-                        ['Enabled'] = false,
-                        ['Delay'] = { {0.6, 0.7} } -- Min / Max
-                    }
+            ['Weapon Delays'] = {
+                -- You can just copy this table format with the specific gun you use (The Tool Name, not just "sg" or something like that).
+                ['[Revolver]'] = {
+                    ['Enabled'] = false, -- If disabled, instant delay.
+                    ['Initial'] = {true, 0.1, 0.15}, -- Delay when first triggerbotting
+                    ['Mouse'] = {true, 0.05, 0.1}, -- Delay when mouse is inside FOV / Exact Hitbox
+                    ['Shoot'] = {true, 0.3, 0.4}, -- Delay while shooting
+                    ['Tool Switch'] = {true, 0.2, 0.3}, -- Delay when switching to this tool
+                    ['Target Switch'] = {false, 0.15, 0.2} -- Delay when switching targets.
                 },
 
-                ['Mouse Delay'] = {
-                    ['Enabled'] = false, -- Delay when your Mouse is inside your FOV before shooting
-                    ['Delay'] = 0.5,
-                    ['Randomize'] = {
-                        ['Enabled'] = true,
-                        ['Delay'] = { {0.6, 0.7} } -- Min / Max
-                    }
-                },  
+                ['[Double-Barrel SG]'] = {
+                    ['Enabled'] = false, -- If disabled, instant delay.
+                    ['Initial'] = {true, 0.1, 0.15}, -- Delay when first triggerbotting
+                    ['Mouse'] = {true, 0.05, 0.1}, -- Delay when mouse is inside FOV / Exact Hitbox
+                    ['Shoot'] = {true, 0.3, 0.4}, -- Delay while shooting
+                    ['Tool Switch'] = {true, 0.2, 0.3}, -- Delay when switching to this tool
+                    ['Target Switch'] = {false, 0.15, 0.2} -- Delay when switching targets.
+                },
 
-                ['Shoot Delay'] = {
-                    ['Enabled'] = false, -- Delay when shooting your triggerbot
-                    ['Delay'] = 0.5,
-                    ['Randomize'] = {
-                        ['Enabled'] = true,
-                        ['Delay'] = { {0.6, 0.7} } -- Min / Max
-                    }
-                }
-            },
+                ['[TacticalShotgun]'] = {
+                    ['Enabled'] = false, -- If disabled, instant delay.
+                    ['Initial'] = {true, 0.1, 0.15}, -- Delay when first triggerbotting
+                    ['Mouse'] = {true, 0.05, 0.1}, -- Delay when mouse is inside FOV / Exact Hitbox
+                    ['Shoot'] = {true, 0.3, 0.4}, -- Delay while shooting
+                    ['Tool Switch'] = {true, 0.2, 0.3}, -- Delay when switching to this tool
+                    ['Target Switch'] = {false, 0.15, 0.2} -- Delay when switching targets.
+                },
 
-
-            ['Tool Switch Delay'] = { -- Delay after switching to a new weapon before firing
-                ['Enabled'] = false,
-                ['Delay'] = 0.3,
-                ['Randomize'] = {
-                    ['Enabled'] = false,
-                    ['Delay'] = { {0.2, 0.4} } -- Min / Max
-                }
-            },
-
-            ['Target Switch Delay'] = { -- Delay when switching to a different target
-                ['Enabled'] = false,
-                ['Delay'] = 0.2,
-                ['Randomize'] = {
-                    ['Enabled'] = false,
-                    ['Delay'] = { {0.15, 0.25} } -- Min / Max
-                }
+                ['[Silencer]'] = {
+                    ['Enabled'] = false, -- If disabled, instant delay.
+                    ['Initial'] = {true, 0.1, 0.15}, -- Delay when first triggerbotting
+                    ['Mouse'] = {true, 0.05, 0.1}, -- Delay when mouse is inside FOV / Exact Hitbox
+                    ['Shoot'] = {true, 0.3, 0.4}, -- Delay while shooting
+                    ['Tool Switch'] = {true, 0.2, 0.3}, -- Delay when switching to this tool
+                    ['Target Switch'] = {false, 0.15, 0.2} -- Delay when switching targets.
+                },
             },
 
             ['FOV'] = { -- FOV's
@@ -368,9 +332,9 @@ getgenv()['Prosper'] = {
             ['Delay Changer'] = {
                 ['Enabled'] = false,
                 ['Weapons'] = {
-                    ['[Double-Barrel SG]'] = { ['Multiplier'] = 0.37 },
-                    ['[Revolver]'] = { ['Multiplier'] = 0.67 },
-                    ['[TacticalShotgun]'] = { ['Multiplier'] = 1.0 },
+                    ['[Double-Barrel SG]'] = 37,
+                    ['[Revolver]'] = 67,
+                    ['[TacticalShotgun]'] = 100,
                 }
             },
 
@@ -378,24 +342,24 @@ getgenv()['Prosper'] = {
                 ['Enabled'] = false,
                 ['Mode'] = "Normal", -- Normal // Randomizer
                 ['Double-Barrel SG'] = {
-                    ['Normal'] = { ['Multiplier'] = 0.2 },
-                    ['Randomizer'] = { ['Multipliers'] = { {0.3, 0.5} } } -- Min / Max
+                    ['Normal'] = 20,
+                    ['Randomizer'] = {30, 50}  -- Min / Max
                 },
                 ['TacticalShotgun'] = {
-                    ['Normal'] = { ['Multiplier'] = 0 },
-                    ['Randomizer'] = { ['Multipliers'] = { {0.3, 0.5} } } -- Min / Max
+                    ['Normal'] = 20,
+                    ['Randomizer'] = {30, 50}  -- Min / Max
                 },
                 ['Shotgun'] = {
-                    ['Normal'] = { ['Multiplier'] = 0 },
-                    ['Randomizer'] = { ['Multipliers'] = { {0.3, 0.5} } } -- Min / Max
+                    ['Normal'] = 20,
+                    ['Randomizer'] = {30, 50}  -- Min / Max
                 }
             },
 
             ['Damage Override'] = { 
                 ['Enabled'] = false,
                 ['Weapons'] = { -- Full // Half // Min // Normal
-                    ['[Double-Barrel SG]'] = { ['Mode'] = 'Full' },
                     ['[Revolver]'] = { ['Mode'] = 'Full' },
+                    ['[Double-Barrel SG]'] = { ['Mode'] = 'Full' },
                     ['[TacticalShotgun]'] = { ['Mode'] = 'Full' },
                 },
             },
@@ -457,7 +421,11 @@ getgenv()['Prosper'] = {
                 ['[TacticalShotgun]'] = 'Shiryus Breath',
                 ['[Knife]'] = 'Bitcoin'
             },
-            ['Beam'] = 'Rainbow' -- Hood Customs Only
+            ['Beams'] = { -- Hood Customs Only 
+                ['[Revolver]'] = 'Rainbow',
+                ['[Double-Barrel SG]'] = 'Rainbow',
+                ['[TacticalShotgun]'] = 'Rainbow',
+            }
         },
 
         ['Wall Jump'] = {
@@ -470,18 +438,15 @@ getgenv()['Prosper'] = {
         },
 
         ['Panic Ground'] = { ['Enabled'] = false, },
-        
-        ['Auto Reset'] = { -- Resets yourself via conditions
-            ['Enabled'] = false,
-            ['Conditions'] = {
-                ['Not Protected'] = true,
-                ['Low Health'] = true
-            },
+
+        ['Report Detection'] = {
+            ['Enabled'] = true,
+            ['Action'] = "Notify", -- Notify // Kick
         },
-        
+
         ['Inventory Sorter'] = {
             ['Enabled'] = true,
-            ['Order'] = { '[Double-Barrel SG]', '[Revolver]','[TacticalShotgun]', '[Knife]', },
+            ['Order'] = { '[Revolver]', '[Double-Barrel SG]','[TacticalShotgun]', '[Knife]', },
         },
         
         ['Speed Modifications'] = {
@@ -496,5 +461,4 @@ getgenv()['Prosper'] = {
         },
         ['No Jump Cooldown'] = true,          
     }
-
    loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/d900e5606391ba0ae0b87d74989527a8.lua"))()
