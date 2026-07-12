@@ -73,7 +73,19 @@ getgenv()['Prosper'] = {
             ['Enabled'] = true,
             ['Range'] = 1000, 
             ['Hit Part'] = "Closest",  -- Closest // Part Name
-            ['Prediction'] = { ['Enabled'] = true, ['X'] = 0.1, ['Y'] = 0.1, ['Z'] = 0.1 },
+            ['Prediction'] = { -- Turn off prediction if you're in a 0 delay game, or you're not hitting your shots.
+				['Enabled'] = true, 
+				['Y Stabilizer'] = 0,-- Stabilizes your Y prediction so you don't overshoot.
+				['Auto Prediction'] = { 
+				    ['Enabled'] = true, -- Ifthis is true, values don't apply
+				     ['Scale'] = 1,
+				},
+				['Values'] = {
+					['X'] = 0.1, 
+					['Y'] = 0.1, 
+					['Z'] = 0.1	
+				},
+			 },
             ['Closest'] = {
                 ['Mode'] = "Part", -- Part // Point
                 ['Scale'] = {true, 0.1} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
@@ -116,7 +128,18 @@ getgenv()['Prosper'] = {
             ['Mode'] = "Always", -- Toggle / Hold / Always
             ['Sticky'] = false,
             ['Hit Part'] = "Closest",  -- Closest // Part Name
-            ['Prediction'] = { ['Enabled'] = true, ['X'] = 0.1, ['Y'] = 0.1, ['Z'] = 0.1 },
+            ['Prediction'] = {
+                ['Enabled'] = true,
+                ['Auto Prediction'] = {
+                    ['Enabled'] = false,
+                    ['Scale'] = 1,
+                },
+                ['Values'] = {
+                    ['X'] = 0.1,
+                    ['Y'] = 0.1,
+                    ['Z'] = 0.1,
+                },
+            },
              ['Closest'] = {
                 ['Mode'] = "Part", -- Part // Point
                 ['Scale'] = {true, 0.1} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
@@ -248,7 +271,18 @@ getgenv()['Prosper'] = {
         ['Trigger Bot'] = {
             ['Enabled'] = true, -- Trigger Bot toggle
             ['Range'] = 200, 
-            ['Prediction'] = { ['Enabled'] = true, ['X'] = 0.1, ['Y'] = 0.1, ['Z'] = 0.1 },
+            ['Prediction'] = {
+                ['Enabled'] = true,
+                ['Auto Prediction'] = {
+                    ['Enabled'] = false,
+                    ['Scale'] = 1,
+                },
+                ['Values'] = {
+                    ['X'] = 0.1,
+                    ['Y'] = 0.1,
+                    ['Z'] = 0.1,
+                },
+            },
             ['Settings'] = {
                 ['Mode'] = "Hold", -- Always // Hold // Toggle
                 ['Type'] = "Exact" -- FOV // Exact
