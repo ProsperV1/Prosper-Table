@@ -75,7 +75,7 @@ getgenv()['Prosper'] = {
             ['Hit Part'] = "Closest",  -- Closest // Part Name
             ['Prediction'] = { -- Turn off prediction if you're in a 0 delay game, or you're not hitting your shots.
 				['Enabled'] = true, 
-				['Y Stabilizer'] = 0,-- Stabilizes your Y prediction so you don't overshoot.
+				['Y Stabilizer'] = 0, -- Stabilizes your Y prediction so you don't overshoot.
 				['Auto Prediction'] = { 
 				    ['Enabled'] = true, -- If this is true, values don't apply
 				},
