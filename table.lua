@@ -82,10 +82,10 @@ getgenv()['Prosper'] = {
             ['FOV'] = { -- FOV's
                 ['FOV Type'] = "2D", -- 2D // 3D
                 ['FOV Mode'] = "Simple",  -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
-                ['Show FOV'] = false,
+                ['Show FOV'] = true,
 
                 ['2D'] = {
-                    ['Simple'] = { {5, 5} }, -- X // Y
+                    ['Simple'] = { {1, 2} }, -- X // Y
 
                     ['Advanced'] = {
                         ['X'] = {1, 2},-- Left // Right
@@ -148,9 +148,9 @@ getgenv()['Prosper'] = {
                     ['Speed Multiplier'] = 0.7, -- Lower = slower curve (less blatant), 1 = same speed as normal
                 },
 
-                ['Deadzone Smoothing'] = {
+                ['Deadzone Snappiness'] = {
                     ['Enabled'] = true,
-                    ['Smoothing'] = { {0.5, 0.5} } -- X // Y 
+                    ['Snappiness'] = { {0.5, 0.5} } -- X // Y 
                 },
 
                 ['Snap Delay'] = { -- Delay while snapping onto the person
@@ -201,8 +201,8 @@ getgenv()['Prosper'] = {
             ['FOV'] = {
                 ['FOV Type'] = "Circle", -- 2D // 3D // Circle
                 ['FOV Mode'] = "Simple", -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
-                ['Show FOV'] = false,
-                ['Show Deadzone FOV'] = false,
+                ['Show FOV'] = true,
+                ['Show Deadzone FOV'] = true,
 
                 ['Circle'] = { ['Radius'] = 565,  ['Deadzone Radius'] = 235 },
 
