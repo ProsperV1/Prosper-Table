@@ -57,48 +57,35 @@ getgenv()['Prosper'] = {
             },
         },
         
-
-        ['Weapons'] = {
-            ['Whitelisted'] = { -- Weapons that will work when you use a certain feature.
-                ['Silent Aimbot'] = { '[Revolver]', '[Double-Barrel SG]', '[TacticalShotgun]', '[Silencer]' },
-                ['Camera Aimbot'] = { '[Revolver]', '[Double-Barrel SG]', '[TacticalShotgun]', '[Silencer]', '[Knife]' },
-                ['Trigger Bot'] = { '[Revolver]', '[Double-Barrel SG]', '[TacticalShotgun]', '[Silencer]' },
-            },
-            ['Activation Range'] = { -- Features activate based on your weapon's range.
-                ['[Revolver]'] = 200,
-                ['[Double-Barrel SG]'] = 114,
-                ['[TacticalShotgun]'] = 100,
-                ['[Silencer]'] = 164,
-            },
-
-            ['Future'] = { -- Helps with blanking, use when raging though.
-                ['Guns'] = {
-                    ['[Revolver]'] = { ['Enabled'] = false },
-                    ['[Double-Barrel SG]'] = { ['Enabled'] = false },
-                    ['[TacticalShotgun]'] = { ['Enabled'] = false },
-                }
-            },
+        ['Future'] = { -- Helps with blanking, use when raging though.
+            ['Guns'] = {
+                 ['[Revolver]'] = { ['Enabled'] = false },
+                 ['[Double-Barrel SG]'] = { ['Enabled'] = false },
+                 ['[TacticalShotgun]'] = { ['Enabled'] = false },
+            }
         },
-
+       
         ['Rage Mode'] = {
             ['Enabled'] = false, -- Meant for raging.
         },
 
         ['Silent Aimbot'] = {
             ['Enabled'] = true,
+            ['Range'] = 1000, 
             ['Hit Part'] = "Closest",  -- Closest // Part Name
+            ['Prediction'] = { ['Enabled'] = true, ['X'] = 0.1, ['Y'] = 0.1, ['Z'] = 0.1 },
             ['Closest'] = {
-                ['Mode'] = "Point", -- Part // Point
+                ['Mode'] = "Part", -- Part // Point
                 ['Scale'] = {true, 0.1} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
             },
 
             ['FOV'] = { -- FOV's
                 ['FOV Type'] = "2D", -- 2D // 3D
                 ['FOV Mode'] = "Simple",  -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
-                ['Show FOV'] = true,
+                ['Show FOV'] = false,
 
                 ['2D'] = {
-                    ['Simple'] = { {1, 2} }, -- X // Y
+                    ['Simple'] = { {5, 5} }, -- X // Y
 
                     ['Advanced'] = {
                         ['X'] = {1, 2},-- Left // Right
@@ -125,11 +112,13 @@ getgenv()['Prosper'] = {
 
         ['Camera Aimbot'] = {
             ['Enabled'] = true,
+            ['Range'] = 1000, 
             ['Mode'] = "Always", -- Toggle / Hold / Always
             ['Sticky'] = false,
             ['Hit Part'] = "Closest",  -- Closest // Part Name
+            ['Prediction'] = { ['Enabled'] = true, ['X'] = 0.1, ['Y'] = 0.1, ['Z'] = 0.1 },
              ['Closest'] = {
-                ['Mode'] = "Point", -- Part // Point
+                ['Mode'] = "Part", -- Part // Point
                 ['Scale'] = {true, 0.1} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
             },
 
@@ -155,7 +144,7 @@ getgenv()['Prosper'] = {
             ['Humanize'] = { -- Passes clip checks
                 ['Bezier Curves'] = {
                     ['Enabled'] = true,
-                    ['Mode'] = "2", -- Mode is 1-3, 1 being the least legit curve while 3 being the most legit curve
+                    ['Mode'] = "2", -- "1" // "2" // "3"
                     ['Speed Multiplier'] = 0.7, -- Lower = slower curve (less blatant), 1 = same speed as normal
                 },
 
@@ -215,7 +204,7 @@ getgenv()['Prosper'] = {
                 ['Show FOV'] = false,
                 ['Show Deadzone FOV'] = false,
 
-                ['Circle'] = { ['Radius'] = 165,  ['Deadzone Radius'] = 35 },
+                ['Circle'] = { ['Radius'] = 565,  ['Deadzone Radius'] = 235 },
 
                 ['2D'] = {
                     ['Simple'] = { {1, 2} }, -- X // Y
@@ -258,6 +247,8 @@ getgenv()['Prosper'] = {
 
         ['Trigger Bot'] = {
             ['Enabled'] = true, -- Trigger Bot toggle
+            ['Range'] = 200, 
+            ['Prediction'] = { ['Enabled'] = true, ['X'] = 0.1, ['Y'] = 0.1, ['Z'] = 0.1 },
             ['Settings'] = {
                 ['Mode'] = "Hold", -- Always // Hold // Toggle
                 ['Type'] = "Exact" -- FOV // Exact
