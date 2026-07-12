@@ -77,7 +77,7 @@ getgenv()['Prosper'] = {
 				['Enabled'] = true, 
 				['Y Stabilizer'] = 0,-- Stabilizes your Y prediction so you don't overshoot.
 				['Auto Prediction'] = { 
-				    ['Enabled'] = true, -- Ifthis is true, values don't apply
+				    ['Enabled'] = true, -- If this is true, values don't apply
 				},
 				['Values'] = {
 					['X'] = 0.1, 
@@ -87,7 +87,7 @@ getgenv()['Prosper'] = {
 			 },
             ['Closest'] = {
                 ['Mode'] = "Part", -- Part // Point
-                ['Scale'] = {true, 0.1} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
+                ['Scale'] = {true, 0.1} -- Enabled (if disabled, wont scale and you might miss more shots), Scale (0 being no redirection and 1 being centered)
             },
 
             ['FOV'] = { -- FOV's
