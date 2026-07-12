@@ -78,7 +78,6 @@ getgenv()['Prosper'] = {
 				['Y Stabilizer'] = 0,-- Stabilizes your Y prediction so you don't overshoot.
 				['Auto Prediction'] = { 
 				    ['Enabled'] = true, -- Ifthis is true, values don't apply
-				     ['Scale'] = 1,
 				},
 				['Values'] = {
 					['X'] = 0.1, 
@@ -132,7 +131,6 @@ getgenv()['Prosper'] = {
                 ['Enabled'] = true,
                 ['Auto Prediction'] = {
                     ['Enabled'] = false,
-                    ['Scale'] = 1,
                 },
                 ['Values'] = {
                     ['X'] = 0.1,
@@ -275,7 +273,6 @@ getgenv()['Prosper'] = {
                 ['Enabled'] = true,
                 ['Auto Prediction'] = {
                     ['Enabled'] = false,
-                    ['Scale'] = 1,
                 },
                 ['Values'] = {
                     ['X'] = 0.1,
