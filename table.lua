@@ -1,12 +1,18 @@
-getgenv()['Prosper'] = {
+getgenv()['Prosper'] = { 
         ['Authentication'] = {
             ['Key'] = "cNTOfqyiiGHRgIVBPIgWAGalNzPgbDLg" -- put your key in for Luarmor
-        },    
+        },  
+          
         ['Extras'] = {
             ["Mod Detector"] = {
                 ["Enabled"] = true,
                 ["Action"] = "Kick", -- Notify // Kick
-            },   
+            },
+            ['Report Detector'] = {
+                ['Enabled'] = true,
+                ['Action'] = "Notify", -- Notify // Kick
+                ['Report Back'] = true,
+            },
         },
 
         ["Character"] = {
@@ -73,6 +79,10 @@ getgenv()['Prosper'] = {
             ['Enabled'] = true,
             ['Range'] = 1000, 
             ['Hit Part'] = "Closest",  -- Closest // Part Name
+            ['Closest'] = {
+                ['Mode'] = "Part", -- Part // Point
+                ['Scale'] = {true, 0.1} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
+            },
             ['Prediction'] = { -- Turn off prediction if you're in a 0 delay game, or you're not hitting your shots.
 				['Enabled'] = true, 
 				['Y Stabilizer'] = 0, -- Stabilizes your Y prediction so you don't overshoot.
@@ -85,10 +95,6 @@ getgenv()['Prosper'] = {
 					['Z'] = 0.1	
 				},
 			 },
-            ['Closest'] = {
-                ['Mode'] = "Part", -- Part // Point
-                ['Scale'] = {true, 0.1} -- Enabled (if disabled, wont scale and you might miss more shots), Scale (0 being no redirection and 1 being centered)
-            },
 
             ['FOV'] = { -- FOV's
                 ['FOV Type'] = "2D", -- 2D // 3D
@@ -127,6 +133,11 @@ getgenv()['Prosper'] = {
             ['Mode'] = "Always", -- Toggle / Hold / Always
             ['Sticky'] = false,
             ['Hit Part'] = "Closest",  -- Closest // Part Name
+            ['Closest'] = {
+                ['Mode'] = "Part", -- Part // Point
+                ['Scale'] = {true, 0.1} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
+            },
+
             ['Prediction'] = {
                 ['Enabled'] = true,
                 ['Auto Prediction'] = {
@@ -138,11 +149,6 @@ getgenv()['Prosper'] = {
                     ['Z'] = 0.1,
                 },
             },
-             ['Closest'] = {
-                ['Mode'] = "Part", -- Part // Point
-                ['Scale'] = {true, 0.1} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
-            },
-
 
             ['Snappiness'] = { 
                 ['Enabled'] = true,
@@ -269,6 +275,11 @@ getgenv()['Prosper'] = {
         ['Trigger Bot'] = {
             ['Enabled'] = true, -- Trigger Bot toggle
             ['Range'] = 200, 
+            ['Settings'] = {
+                ['Mode'] = "Hold", -- Always // Hold // Toggle
+                ['Type'] = "Exact" -- FOV // Exact
+            },
+
             ['Prediction'] = {
                 ['Enabled'] = true,
                 ['Auto Prediction'] = {
@@ -279,10 +290,6 @@ getgenv()['Prosper'] = {
                     ['Y'] = 0.1,
                     ['Z'] = 0.1,
                 },
-            },
-            ['Settings'] = {
-                ['Mode'] = "Hold", -- Always // Hold // Toggle
-                ['Type'] = "Exact" -- FOV // Exact
             },
 
             ['Weapon Delays'] = {
@@ -438,7 +445,7 @@ getgenv()['Prosper'] = {
         ['Skin Changer'] = { -- changes ur skins (Client-sided)
             ['Enabled'] = true,
             ['Weapons'] = {
-                ['[Revolver]'] = 'Shiryus Breath',
+                ['[Revolver]'] = 'Golden Age',
                 ['[Double-Barrel SG]'] = 'Shiryus Breath',
                 ['[TacticalShotgun]'] = 'Shiryus Breath',
                 ['[Knife]'] = 'Bitcoin'
@@ -461,11 +468,6 @@ getgenv()['Prosper'] = {
 
         ['Panic Ground'] = { ['Enabled'] = false, },
 
-        ['Report Detection'] = {
-            ['Enabled'] = true,
-            ['Action'] = "Notify", -- Notify // Kick
-        },
-
         ['Inventory Sorter'] = {
             ['Enabled'] = true,
             ['Order'] = { '[Revolver]', '[Double-Barrel SG]','[TacticalShotgun]', '[Knife]', },
@@ -474,6 +476,7 @@ getgenv()['Prosper'] = {
         ['Speed Modifications'] = {
             ['Enabled'] = true,
             ['Anti Trip'] = true,
+            ['Anti Stop'] = true,
             ['Multipliers'] = {
                 ['Normal'] = { ['Multiplier'] = 35 },
                 ['Shooting'] = { ['Multiplier'] = 35 },
@@ -483,4 +486,5 @@ getgenv()['Prosper'] = {
         },
         ['No Jump Cooldown'] = true,          
     }
+
    loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/d900e5606391ba0ae0b87d74989527a8.lua"))()
