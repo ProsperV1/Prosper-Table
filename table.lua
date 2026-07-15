@@ -17,7 +17,7 @@ getgenv()['Prosper'] = {
 
         ["Character"] = {
             ["Headless"] = true, 
-            ["Korblox"] = true, 
+            ["Korblox"] = false, 
         },
 
         ["Keybinds"] = { 
@@ -31,6 +31,7 @@ getgenv()['Prosper'] = {
 
             ['Movement'] = {
                ['Speed'] = "V", 
+               ['Jump'] = "V", 
                ['Panic Ground'] = "G",
             },
 
@@ -80,12 +81,12 @@ getgenv()['Prosper'] = {
             ['Range'] = 1000, 
             ['Hit Part'] = "Closest",  -- Closest // Part Name
             ['Closest'] = {
-                ['Mode'] = "Part", -- Part // Point
-                ['Scale'] = {true, 0.1} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
+                ['Mode'] = "Point", -- Part // Point
+                ['Scale'] = {true, 0.4} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
             },
             ['Prediction'] = { -- Turn off prediction if you're in a 0 delay game, or you're not hitting your shots.
-				['Enabled'] = true, 
-				['Y Stabilizer'] = 0, -- Stabilizes your Y prediction so you don't overshoot.
+				['Enabled'] = false, 
+				['Y Stabilizer'] = 0.2, 
 				['Auto Prediction'] = { 
 				    ['Enabled'] = true, -- If this is true, values don't apply
 				},
@@ -99,7 +100,7 @@ getgenv()['Prosper'] = {
             ['FOV'] = { -- FOV's
                 ['FOV Type'] = "2D", -- 2D // 3D
                 ['FOV Mode'] = "Simple",  -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
-                ['Show FOV'] = true,
+                ['Show FOV'] = false,
 
                 ['2D'] = {
                     ['Simple'] = { {1, 2} }, -- X // Y
@@ -139,7 +140,7 @@ getgenv()['Prosper'] = {
             },
 
             ['Prediction'] = {
-                ['Enabled'] = true,
+                ['Enabled'] = false,
                 ['Auto Prediction'] = {
                     ['Enabled'] = false,
                 },
@@ -228,8 +229,8 @@ getgenv()['Prosper'] = {
             ['FOV'] = {
                 ['FOV Type'] = "Circle", -- 2D // 3D // Circle
                 ['FOV Mode'] = "Simple", -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
-                ['Show FOV'] = true,
-                ['Show Deadzone FOV'] = true,
+                ['Show FOV'] = false,
+                ['Show Deadzone FOV'] = false,
 
                 ['Circle'] = { ['Radius'] = 565,  ['Deadzone Radius'] = 235 },
 
@@ -273,7 +274,7 @@ getgenv()['Prosper'] = {
         },
 
         ['Trigger Bot'] = {
-            ['Enabled'] = true, -- Trigger Bot toggle
+            ['Enabled'] = false, -- Trigger Bot toggle
             ['Range'] = 200, 
             ['Settings'] = {
                 ['Mode'] = "Hold", -- Always // Hold // Toggle
@@ -359,7 +360,7 @@ getgenv()['Prosper'] = {
 
         ['Gun Modifications'] = {
             ['Delay Changer'] = {
-                ['Enabled'] = false,
+                ['Enabled'] = true,
                 ['Weapons'] = {
                     ['[Double-Barrel SG]'] = 37,
                     ['[Revolver]'] = 67,
@@ -368,7 +369,7 @@ getgenv()['Prosper'] = {
             },
 
             ['Spread Modifications'] = {
-                ['Enabled'] = false,
+                ['Enabled'] = true,
                 ['Mode'] = "Normal", -- Normal // Randomizer
                 ['Double-Barrel SG'] = {
                     ['Normal'] = 20,
@@ -385,7 +386,7 @@ getgenv()['Prosper'] = {
             },
 
             ['Damage Override'] = { 
-                ['Enabled'] = false,
+                ['Enabled'] = true,
                 ['Weapons'] = { -- Full // Half // Min // Normal
                     ['[Revolver]'] = { ['Mode'] = 'Full' },
                     ['[Double-Barrel SG]'] = { ['Mode'] = 'Full' },
@@ -393,7 +394,7 @@ getgenv()['Prosper'] = {
                 },
             },
 
-            ['Range Enhancer'] = { ['Enabled'] = false },
+            ['Range Enhancer'] = { ['Enabled'] = true },
 
             ['Bullet Manipulation'] = { ['Enabled'] = false },
 
@@ -412,7 +413,7 @@ getgenv()['Prosper'] = {
             ['Health'] = {
                 ['Enabled'] = false,
                 ['Position'] = 'Bottom', -- Top // Bottom // Left // Right
-                ['Mode'] = 'All', -- All // Current Target
+                ['Mode'] = 'Current Target', -- All // Current Target
             },
 
             ['Distance'] = {
@@ -433,7 +434,7 @@ getgenv()['Prosper'] = {
             ['Armor'] = {
                 ['Enabled'] = false,
                 ['Position'] = 'Bottom', -- Top // Bottom // Left // Right
-                ['Mode'] = 'All', -- All // Current Target
+                ['Mode'] = 'Current Target', -- All // Current Target
             },
 
             ['Targeting'] = { -- Colors for who you're targeted at based on Target Modes
@@ -446,9 +447,9 @@ getgenv()['Prosper'] = {
             ['Enabled'] = true,
             ['Weapons'] = {
                 ['[Revolver]'] = 'Golden Age',
-                ['[Double-Barrel SG]'] = 'Shiryus Breath',
-                ['[TacticalShotgun]'] = 'Shiryus Breath',
-                ['[Knife]'] = 'Bitcoin'
+                ['[Double-Barrel SG]'] = 'Golden Age',
+                ['[TacticalShotgun]'] = 'Galaxy',
+                ['[Knife]'] = 'Golden Age Tanto'
             },
             ['Beams'] = { -- Hood Customs Only 
                 ['[Revolver]'] = 'Rainbow',
@@ -460,31 +461,43 @@ getgenv()['Prosper'] = {
         ['Wall Jump'] = {
             ['Enabled'] = true,
             ['Mode'] = 'Infinite', -- Infinite or Double
+            ['Spiderman'] = false,
             ['Multipliers'] = {
                 ['Regular'] = { ['Multiplier'] = 1.2 },
                 ['Knife'] = { ['Multiplier'] = 1.4 },
             },
         },
 
-        ['Panic Ground'] = { ['Enabled'] = false, },
+        ['Panic Ground'] = { ['Enabled'] = true, },
 
         ['Inventory Sorter'] = {
             ['Enabled'] = true,
             ['Order'] = { '[Revolver]', '[Double-Barrel SG]','[TacticalShotgun]', '[Knife]', },
         },
         
-        ['Speed Modifications'] = {
-            ['Enabled'] = true,
+        ['Character Modifications'] = {
+            ['Enabled'] = false,
             ['Anti Trip'] = true,
             ['Anti Stop'] = true,
-            ['Multipliers'] = {
-                ['Normal'] = { ['Multiplier'] = 35 },
-                ['Shooting'] = { ['Multiplier'] = 35 },
-                ['Reload'] = { ['Multiplier'] = 35 },
-                ['Low Health'] = { ['Multiplier'] = 35 },
+            ['Speed Modifications'] = {
+                ['Enabled'] = true,
+                ['Multipliers'] = {
+                    ['Normal'] = { ['Multiplier'] = 35 },
+                    ['Shooting'] = { ['Multiplier'] = 35 },
+                    ['Reload'] = { ['Multiplier'] = 35 },
+                    ['Low Health'] = { ['Multiplier'] = 35 },
+                },
+            },
+            ['Jump Modifications'] = {
+                ['Enabled'] = false,
+                ['Multipliers'] = {
+                    ['Normal'] = { ['Multiplier'] = 3 },
+                    ['Shooting'] = { ['Multiplier'] = 3 },
+                    ['Reload'] = { ['Multiplier'] = 3 },
+                    ['Low Health'] = { ['Multiplier'] = 3 },
+                },
             },
         },
         ['No Jump Cooldown'] = true,          
     }
-
    loadstring(game:HttpGet("https://api.luarmor.net/files/v4/loaders/d900e5606391ba0ae0b87d74989527a8.lua"))()
