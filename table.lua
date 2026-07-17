@@ -16,8 +16,13 @@ getgenv()['Prosper'] = {
         },
 
         ["Character"] = {
+           ['Avatar Spoofer'] = { -- Use the same body type as your target or this will break.
+              ['Enabled'] = true,
+              ['Target'] = "prosperity1019", -- Username / UserID
+              ['Skinny'] = true, -- Makes your spoofed avatar skinny.
+            },
             ["Headless"] = true, 
-            ["Korblox"] = false, 
+            ["Korblox"] = true, 
         },
 
         ["Keybinds"] = { 
@@ -31,7 +36,7 @@ getgenv()['Prosper'] = {
 
             ['Movement'] = {
                ['Speed'] = "V", 
-               ['Jump'] = "V", 
+               ['Jump'] = "J", 
                ['Panic Ground'] = "G",
             },
 
@@ -82,11 +87,11 @@ getgenv()['Prosper'] = {
             ['Hit Part'] = "Closest",  -- Closest // Part Name
             ['Closest'] = {
                 ['Mode'] = "Point", -- Part // Point
-                ['Scale'] = {true, 0.4} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
+                ['Scale'] = {false, 0.1} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
             },
             ['Prediction'] = { -- Turn off prediction if you're in a 0 delay game, or you're not hitting your shots.
 				['Enabled'] = false, 
-				['Y Stabilizer'] = 0.2, 
+				['Y Stabilizer'] = 0, 
 				['Auto Prediction'] = { 
 				    ['Enabled'] = true, -- If this is true, values don't apply
 				},
@@ -100,7 +105,7 @@ getgenv()['Prosper'] = {
             ['FOV'] = { -- FOV's
                 ['FOV Type'] = "2D", -- 2D // 3D
                 ['FOV Mode'] = "Simple",  -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
-                ['Show FOV'] = false,
+                ['Show FOV'] = true,
 
                 ['2D'] = {
                     ['Simple'] = { {1, 2} }, -- X // Y
@@ -229,8 +234,8 @@ getgenv()['Prosper'] = {
             ['FOV'] = {
                 ['FOV Type'] = "Circle", -- 2D // 3D // Circle
                 ['FOV Mode'] = "Simple", -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
-                ['Show FOV'] = false,
-                ['Show Deadzone FOV'] = false,
+                ['Show FOV'] = true,
+                ['Show Deadzone FOV'] = true,
 
                 ['Circle'] = { ['Radius'] = 565,  ['Deadzone Radius'] = 235 },
 
@@ -274,7 +279,7 @@ getgenv()['Prosper'] = {
         },
 
         ['Trigger Bot'] = {
-            ['Enabled'] = false, -- Trigger Bot toggle
+            ['Enabled'] = true, -- Trigger Bot toggle
             ['Range'] = 200, 
             ['Settings'] = {
                 ['Mode'] = "Hold", -- Always // Hold // Toggle
@@ -360,7 +365,7 @@ getgenv()['Prosper'] = {
 
         ['Gun Modifications'] = {
             ['Delay Changer'] = {
-                ['Enabled'] = true,
+                ['Enabled'] = false,
                 ['Weapons'] = {
                     ['[Double-Barrel SG]'] = 37,
                     ['[Revolver]'] = 67,
@@ -369,7 +374,7 @@ getgenv()['Prosper'] = {
             },
 
             ['Spread Modifications'] = {
-                ['Enabled'] = true,
+                ['Enabled'] = false,
                 ['Mode'] = "Normal", -- Normal // Randomizer
                 ['Double-Barrel SG'] = {
                     ['Normal'] = 20,
@@ -386,7 +391,7 @@ getgenv()['Prosper'] = {
             },
 
             ['Damage Override'] = { 
-                ['Enabled'] = true,
+                ['Enabled'] = false,
                 ['Weapons'] = { -- Full // Half // Min // Normal
                     ['[Revolver]'] = { ['Mode'] = 'Full' },
                     ['[Double-Barrel SG]'] = { ['Mode'] = 'Full' },
@@ -394,7 +399,7 @@ getgenv()['Prosper'] = {
                 },
             },
 
-            ['Range Enhancer'] = { ['Enabled'] = true },
+            ['Range Enhancer'] = { ['Enabled'] = false },
 
             ['Bullet Manipulation'] = { ['Enabled'] = false },
 
@@ -413,7 +418,7 @@ getgenv()['Prosper'] = {
             ['Health'] = {
                 ['Enabled'] = false,
                 ['Position'] = 'Bottom', -- Top // Bottom // Left // Right
-                ['Mode'] = 'Current Target', -- All // Current Target
+                ['Mode'] = 'All', -- All // Current Target
             },
 
             ['Distance'] = {
@@ -434,7 +439,7 @@ getgenv()['Prosper'] = {
             ['Armor'] = {
                 ['Enabled'] = false,
                 ['Position'] = 'Bottom', -- Top // Bottom // Left // Right
-                ['Mode'] = 'Current Target', -- All // Current Target
+                ['Mode'] = 'All', -- All // Current Target
             },
 
             ['Targeting'] = { -- Colors for who you're targeted at based on Target Modes
@@ -446,10 +451,10 @@ getgenv()['Prosper'] = {
         ['Skin Changer'] = { -- changes ur skins (Client-sided)
             ['Enabled'] = true,
             ['Weapons'] = {
-                ['[Revolver]'] = 'Golden Age',
-                ['[Double-Barrel SG]'] = 'Golden Age',
-                ['[TacticalShotgun]'] = 'Galaxy',
-                ['[Knife]'] = 'Golden Age Tanto'
+                ['[Revolver]'] = 'Shiryus Breath',
+                ['[Double-Barrel SG]'] = 'Shiryus Breath',
+                ['[TacticalShotgun]'] = 'Shiryus Breath',
+                ['[Knife]'] = 'Bitcoin'
             },
             ['Beams'] = { -- Hood Customs Only 
                 ['[Revolver]'] = 'Rainbow',
@@ -468,7 +473,7 @@ getgenv()['Prosper'] = {
             },
         },
 
-        ['Panic Ground'] = { ['Enabled'] = true, },
+        ['Panic Ground'] = { ['Enabled'] = false, },
 
         ['Inventory Sorter'] = {
             ['Enabled'] = true,
@@ -476,7 +481,7 @@ getgenv()['Prosper'] = {
         },
         
         ['Character Modifications'] = {
-            ['Enabled'] = false,
+            ['Enabled'] = true,
             ['Anti Trip'] = true,
             ['Anti Stop'] = true,
             ['Speed Modifications'] = {
@@ -489,12 +494,12 @@ getgenv()['Prosper'] = {
                 },
             },
             ['Jump Modifications'] = {
-                ['Enabled'] = false,
+                ['Enabled'] = true,
                 ['Multipliers'] = {
-                    ['Normal'] = { ['Multiplier'] = 3 },
-                    ['Shooting'] = { ['Multiplier'] = 3 },
-                    ['Reload'] = { ['Multiplier'] = 3 },
-                    ['Low Health'] = { ['Multiplier'] = 3 },
+                    ['Normal'] = { ['Multiplier'] = 1 },
+                    ['Shooting'] = { ['Multiplier'] = 1 },
+                    ['Reload'] = { ['Multiplier'] = 1 },
+                    ['Low Health'] = { ['Multiplier'] = 1 },
                 },
             },
         },
