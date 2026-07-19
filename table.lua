@@ -17,12 +17,12 @@ getgenv()['Prosper'] = {
 
         ["Character"] = {
            ['Avatar Spoofer'] = { -- Use the same body type as your target or this will break.
-              ['Enabled'] = true,
+              ['Enabled'] = false,
               ['Target'] = "prosperity1019", -- Username / UserID
               ['Skinny'] = true, -- Makes your spoofed avatar skinny.
             },
             ["Headless"] = true, 
-            ["Korblox"] = true, 
+            ["Korblox"] = false, 
         },
 
         ["Keybinds"] = { 
@@ -45,7 +45,6 @@ getgenv()['Prosper'] = {
         
         ['Targeting'] = {
             ['Target Mode'] = 'Automatic', -- Automatic // Target
-            ['Range'] = 1000, -- Maximum targeting distance
         },
 
         ["Universal Checks"] = {
@@ -91,7 +90,7 @@ getgenv()['Prosper'] = {
             },
             ['Prediction'] = { -- Turn off prediction if you're in a 0 delay game, or you're not hitting your shots.
 				['Enabled'] = false, 
-				['Y Stabilizer'] = 0, 
+				['Y Stabilizer'] = 0.2, 
 				['Auto Prediction'] = { 
 				    ['Enabled'] = true, -- If this is true, values don't apply
 				},
@@ -105,7 +104,7 @@ getgenv()['Prosper'] = {
             ['FOV'] = { -- FOV's
                 ['FOV Type'] = "2D", -- 2D // 3D
                 ['FOV Mode'] = "Simple",  -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
-                ['Show FOV'] = true,
+                ['Show FOV'] = false,
 
                 ['2D'] = {
                     ['Simple'] = { {1, 2} }, -- X // Y
@@ -136,7 +135,7 @@ getgenv()['Prosper'] = {
         ['Camera Aimbot'] = {
             ['Enabled'] = true,
             ['Range'] = 1000, 
-            ['Mode'] = "Always", -- Toggle / Hold / Always
+            ['Mode'] = "Hold", -- Toggle / Hold / Always
             ['Sticky'] = false,
             ['Hit Part'] = "Closest",  -- Closest // Part Name
             ['Closest'] = {
@@ -234,10 +233,10 @@ getgenv()['Prosper'] = {
             ['FOV'] = {
                 ['FOV Type'] = "Circle", -- 2D // 3D // Circle
                 ['FOV Mode'] = "Simple", -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
-                ['Show FOV'] = true,
-                ['Show Deadzone FOV'] = true,
+                ['Show FOV'] = false,
+                ['Show Deadzone FOV'] = false,
 
-                ['Circle'] = { ['Radius'] = 565,  ['Deadzone Radius'] = 235 },
+                ['Circle'] = { ['Radius'] = 125,  ['Deadzone Radius'] = 35 },
 
                 ['2D'] = {
                     ['Simple'] = { {1, 2} }, -- X // Y
@@ -287,7 +286,7 @@ getgenv()['Prosper'] = {
             },
 
             ['Prediction'] = {
-                ['Enabled'] = true,
+                ['Enabled'] = false,
                 ['Auto Prediction'] = {
                     ['Enabled'] = false,
                 },
@@ -299,45 +298,38 @@ getgenv()['Prosper'] = {
             },
 
             ['Weapon Delays'] = {
-                -- You can just copy this table format with the specific gun you use (The Tool Name, not just "sg" or something like that).
-                ['[Revolver]'] = {
-                    ['Enabled'] = false, -- If disabled, instant delay.
-                    ['Initial'] = {true, 0.1, 0.15}, -- Delay when first triggerbotting
-                    ['Mouse'] = {true, 0.05, 0.1}, -- Delay when mouse is inside FOV / Exact Hitbox
-                    ['Shoot'] = {true, 0.3, 0.4}, -- Delay while shooting
-                    ['Tool Switch'] = {true, 0.2, 0.3}, -- Delay when switching to this tool
-                    ['Target Switch'] = {false, 0.15, 0.2} -- Delay when switching targets.
+                -- You can put any weapon in their proper category, if the weapon you're using isn't in here, it acts as 0 delay.
+                ['Shotguns'] = { 
+                    ['Weapons'] = { 'Double-Barrel SG', 'TacticalShotgun' },
+                    ['Enabled'] = false, -- If delay is on or off for these guns.
+                    ['Initial'] = {true, 0.1, 0.15}, -- Randomized delay when first shooting
+                    ['Mouse'] = {true, 0.05, 0.1}, -- Randomized delay when mouse is inside exact hitbox / fov
+                    ['Shoot'] = {true, 0.3, 0.4}, -- Randomized delay when shooting
+                    ['Tool Switch'] = {true, 0.2, 0.3}, -- Randomized delay when switching to this weapon
+                    ['Target Switch'] = {false, 0.15, 0.2} -- Randomized delay when switching targets
                 },
-
-                ['[Double-Barrel SG]'] = {
-                    ['Enabled'] = false, -- If disabled, instant delay.
-                    ['Initial'] = {true, 0.1, 0.15}, -- Delay when first triggerbotting
-                    ['Mouse'] = {true, 0.05, 0.1}, -- Delay when mouse is inside FOV / Exact Hitbox
-                    ['Shoot'] = {true, 0.3, 0.4}, -- Delay while shooting
-                    ['Tool Switch'] = {true, 0.2, 0.3}, -- Delay when switching to this tool
-                    ['Target Switch'] = {false, 0.15, 0.2} -- Delay when switching targets.
+                ['Pistols'] = {
+                    ['Weapons'] = { 'Revolver', 'Silencer' },
+                    ['Enabled'] = false, -- If delay is on or off for these guns.
+                    ['Initial'] = {true, 0.1, 0.15}, -- Randomized delay when first shooting
+                    ['Mouse'] = {true, 0.05, 0.1}, -- Randomized delay when mouse is inside exact hitbox / fov
+                    ['Shoot'] = {true, 0.3, 0.4}, -- Randomized delay when shooting
+                    ['Tool Switch'] = {true, 0.2, 0.3}, -- Randomized delay when switching to this weapon
+                    ['Target Switch'] = {false, 0.15, 0.2} -- Randomized delay when switching targets
                 },
-
-                ['[TacticalShotgun]'] = {
-                    ['Enabled'] = false, -- If disabled, instant delay.
-                    ['Initial'] = {true, 0.1, 0.15}, -- Delay when first triggerbotting
-                    ['Mouse'] = {true, 0.05, 0.1}, -- Delay when mouse is inside FOV / Exact Hitbox
-                    ['Shoot'] = {true, 0.3, 0.4}, -- Delay while shooting
-                    ['Tool Switch'] = {true, 0.2, 0.3}, -- Delay when switching to this tool
-                    ['Target Switch'] = {false, 0.15, 0.2} -- Delay when switching targets.
-                },
-
-                ['[Silencer]'] = {
-                    ['Enabled'] = false, -- If disabled, instant delay.
-                    ['Initial'] = {true, 0.1, 0.15}, -- Delay when first triggerbotting
-                    ['Mouse'] = {true, 0.05, 0.1}, -- Delay when mouse is inside FOV / Exact Hitbox
-                    ['Shoot'] = {true, 0.3, 0.4}, -- Delay while shooting
-                    ['Tool Switch'] = {true, 0.2, 0.3}, -- Delay when switching to this tool
-                    ['Target Switch'] = {false, 0.15, 0.2} -- Delay when switching targets.
+                ['Others'] = {
+                    ['Weapons'] = { 'Deagle', 'Rifle' },
+                    ['Enabled'] = false, -- If delay is on or off for these guns.
+                    ['Initial'] = {true, 0.1, 0.15}, -- Randomized delay when first shooting
+                    ['Mouse'] = {true, 0.05, 0.1}, -- Randomized delay when mouse is inside exact hitbox / fov
+                    ['Shoot'] = {true, 0.3, 0.4}, -- Randomized delay when shooting
+                    ['Tool Switch'] = {true, 0.2, 0.3}, -- Randomized delay when switching to this weapon
+                    ['Target Switch'] = {false, 0.15, 0.2} -- Randomized delay when switching targets
                 },
             },
 
-            ['FOV'] = { -- FOV's
+    
+           ['FOV'] = { -- FOV's
                 ['FOV Type'] = "2D", -- 2D // 3D
                 ['FOV Mode'] = "Simple",  -- Simple is normal, Advanced is a Split FOV (better for legit fov's).
                 ['Show FOV'] = false,
@@ -399,7 +391,7 @@ getgenv()['Prosper'] = {
                 },
             },
 
-            ['Range Enhancer'] = { ['Enabled'] = false },
+            ['Range Enhancer'] = { ['Enabled'] = false, ['Extension'] = 25 }, -- Extension: max studs added past the gun's real range
 
             ['Bullet Manipulation'] = { ['Enabled'] = false },
 
@@ -451,10 +443,10 @@ getgenv()['Prosper'] = {
         ['Skin Changer'] = { -- changes ur skins (Client-sided)
             ['Enabled'] = true,
             ['Weapons'] = {
-                ['[Revolver]'] = 'Shiryus Breath',
-                ['[Double-Barrel SG]'] = 'Shiryus Breath',
-                ['[TacticalShotgun]'] = 'Shiryus Breath',
-                ['[Knife]'] = 'Bitcoin'
+                ['[Revolver]'] = 'Galaxy',
+                ['[Double-Barrel SG]'] = 'Galaxy',
+                ['[TacticalShotgun]'] = 'Galaxy',
+                ['[Knife]'] = 'Love Kukri'
             },
             ['Beams'] = { -- Hood Customs Only 
                 ['[Revolver]'] = 'Rainbow',
@@ -481,7 +473,7 @@ getgenv()['Prosper'] = {
         },
         
         ['Character Modifications'] = {
-            ['Enabled'] = true,
+            ['Enabled'] = false,
             ['Anti Trip'] = true,
             ['Anti Stop'] = true,
             ['Speed Modifications'] = {
