@@ -391,8 +391,8 @@ getgenv()['Prosper'] = {
                 },
             },
 
-            ['Range Enhancer'] = { ['Enabled'] = false, ['Extension'] = 25 }, -- Extension: max studs added past the gun's real range
-
+            ['Range Enhancer'] = { ['Enabled'] = false }, 
+		
             ['Bullet Manipulation'] = { ['Enabled'] = false },
 
         },
