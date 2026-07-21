@@ -86,7 +86,8 @@ getgenv()['Prosper'] = {
             ['Hit Part'] = "Closest",  -- Closest // Part Name
             ['Closest'] = {
                 ['Mode'] = "Point", -- Part // Point
-                ['Scale'] = {false, 0.1} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
+                ['Scale'] = {true, 0.1}, -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
+				['Raycast'] = true, -- Will give you the 1:1 mouse position, and will ignore scale.
             },
             ['Prediction'] = { -- Turn off prediction if you're in a 0 delay game, or you're not hitting your shots.
 				['Enabled'] = false, 
@@ -139,8 +140,9 @@ getgenv()['Prosper'] = {
             ['Sticky'] = false,
             ['Hit Part'] = "Closest",  -- Closest // Part Name
             ['Closest'] = {
-                ['Mode'] = "Part", -- Part // Point
-                ['Scale'] = {true, 0.1} -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
+                ['Mode'] = "Point", -- Part // Point
+                ['Scale'] = {true, 0.1}, -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
+				['Raycast'] = true -- Will give you the 1:1 mouse position, and will ignore scale.
             },
 
             ['Prediction'] = {
@@ -357,7 +359,7 @@ getgenv()['Prosper'] = {
 
         ['Gun Modifications'] = {
             ['Delay Changer'] = {
-                ['Enabled'] = false,
+                ['Enabled'] = true,
                 ['Weapons'] = {
                     ['[Double-Barrel SG]'] = 37,
                     ['[Revolver]'] = 67,
@@ -383,7 +385,7 @@ getgenv()['Prosper'] = {
             },
 
             ['Damage Override'] = { 
-                ['Enabled'] = false,
+                ['Enabled'] = true,
                 ['Weapons'] = { -- Full // Half // Min // Normal
                     ['[Revolver]'] = { ['Mode'] = 'Full' },
                     ['[Double-Barrel SG]'] = { ['Mode'] = 'Full' },
@@ -391,9 +393,7 @@ getgenv()['Prosper'] = {
                 },
             },
 
-            ['Range Enhancer'] = { ['Enabled'] = false }, 
-		
-            ['Bullet Manipulation'] = { ['Enabled'] = false },
+            ['Range Enhancer'] = { ['Enabled'] = true, },
 
         },
 
@@ -473,7 +473,7 @@ getgenv()['Prosper'] = {
         },
         
         ['Character Modifications'] = {
-            ['Enabled'] = false,
+            ['Enabled'] = true,
             ['Anti Trip'] = true,
             ['Anti Stop'] = true,
             ['Speed Modifications'] = {
@@ -488,10 +488,10 @@ getgenv()['Prosper'] = {
             ['Jump Modifications'] = {
                 ['Enabled'] = true,
                 ['Multipliers'] = {
-                    ['Normal'] = { ['Multiplier'] = 1 },
-                    ['Shooting'] = { ['Multiplier'] = 1 },
-                    ['Reload'] = { ['Multiplier'] = 1 },
-                    ['Low Health'] = { ['Multiplier'] = 1 },
+                    ['Normal'] = { ['Multiplier'] = 5 },
+                    ['Shooting'] = { ['Multiplier'] = 5 },
+                    ['Reload'] = { ['Multiplier'] = 5 },
+                    ['Low Health'] = { ['Multiplier'] = 5 },
                 },
             },
         },
