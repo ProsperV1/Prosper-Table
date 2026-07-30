@@ -44,7 +44,7 @@ getgenv()['Prosper'] = {
         },
         
         ['Targeting'] = {
-            ['Target Mode'] = 'Automatic', -- Automatic // Target
+            ['Target Mode'] = 'Target', -- Automatic // Target
         },
 
         ["Universal Checks"] = {
@@ -70,14 +70,14 @@ getgenv()['Prosper'] = {
         
         ['Future'] = { -- Helps with blanking, use when raging though.
             ['Guns'] = {
-                 ['[Revolver]'] = { ['Enabled'] = false },
+                 ['[Revolver]'] = { ['Enabled'] = true },
                  ['[Double-Barrel SG]'] = { ['Enabled'] = false },
                  ['[TacticalShotgun]'] = { ['Enabled'] = false },
             }
         },
        
         ['Rage Mode'] = {
-            ['Enabled'] = false, -- Meant for raging.
+            ['Enabled'] = true, -- Meant for raging.
         },
 
         ['Silent Aimbot'] = {
@@ -86,12 +86,12 @@ getgenv()['Prosper'] = {
             ['Hit Part'] = "Closest",  -- Closest // Part Name
             ['Closest'] = {
                 ['Mode'] = "Point", -- Part // Point
-                ['Scale'] = {true, 0.1}, -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
+                ['Scale'] = {true, 0.35}, -- Enabled (if disabled, wont scale), Scale (0 being the full part edge, 1 being centered)
 				['Raycast'] = true, -- Will give you the 1:1 mouse position, and will ignore scale.
             },
             ['Prediction'] = { -- Turn off prediction if you're in a 0 delay game, or you're not hitting your shots.
 				['Enabled'] = false, 
-				['Y Stabilizer'] = 0.2, 
+				['Y Stabilizer'] = 0, 
 				['Auto Prediction'] = { 
 				    ['Enabled'] = true, -- If this is true, values don't apply
 				},
@@ -108,7 +108,7 @@ getgenv()['Prosper'] = {
                 ['Show FOV'] = false,
 
                 ['2D'] = {
-                    ['Simple'] = { {1, 2} }, -- X // Y
+                    ['Simple'] = { {4, 4} }, -- X // Y
 
                     ['Advanced'] = {
                         ['X'] = {1, 2},-- Left // Right
@@ -128,9 +128,9 @@ getgenv()['Prosper'] = {
             }
         },
         
-        ['Client Redirection'] = { 
-            ['Enabled'] = false, 
-            ['Weapons'] = { '[Revolver]', '[Silencer]', '[Glock]' } 
+        ['Client Redirection'] = {  -- ONLY works on emulated 0-delay games & Void-Falls.
+            ['Enabled'] = true, 
+            ['Weapons'] = { '[rev]', '[Silencer]', '[Glock]' } 
         },
 
         ['Camera Aimbot'] = {
@@ -141,7 +141,7 @@ getgenv()['Prosper'] = {
             ['Hit Part'] = "Closest",  -- Closest // Part Name
             ['Closest'] = {
                 ['Mode'] = "Point", -- Part // Point
-                ['Scale'] = {true, 0.1}, -- Enabled (if disabled, wont scale), Scale (0 being no redirection and 1 being centered)
+                ['Scale'] = {true, 0.35}, -- Enabled (if disabled, wont scale), Scale (0 being the full part edge, 1 being centered)
 				['Raycast'] = true -- Will give you the 1:1 mouse position, and will ignore scale.
             },
 
@@ -359,7 +359,7 @@ getgenv()['Prosper'] = {
 
         ['Gun Modifications'] = {
             ['Delay Changer'] = {
-                ['Enabled'] = true,
+                ['Enabled'] = false,
                 ['Weapons'] = {
                     ['[Double-Barrel SG]'] = 37,
                     ['[Revolver]'] = 67,
@@ -369,23 +369,36 @@ getgenv()['Prosper'] = {
 
             ['Spread Modifications'] = {
                 ['Enabled'] = false,
-                ['Mode'] = "Normal", -- Normal // Randomizer
+                ['Mode'] = "Normal", -- Normal // Custom
+    
                 ['Double-Barrel SG'] = {
-                    ['Normal'] = 20,
-                    ['Randomizer'] = {30, 50}  -- Min / Max
+                   ['Normal'] = { {30, 50} },  -- Min // Max
+			       ['Custom'] = function() return Vector3.new( -- This is the default spread for Da Hood, customize this how you prefer. 
+                    math.random() > 0.5 and math.random() * 0.05 or -math.random() * 0.05,
+                    math.random() > 0.5 and math.random() * 0.1 or -math.random() * 0.1,
+                    math.random() > 0.5 and math.random() * 0.05 or -math.random() * 0.05
+				) end,
                 },
                 ['TacticalShotgun'] = {
-                    ['Normal'] = 20,
-                    ['Randomizer'] = {30, 50}  -- Min / Max
+                    ['Normal'] = { {30, 50} },  -- Min // Max
+					['Custom'] = function() return Vector3.new( -- This is the default spread for Da Hood, customize this how you prefer. 
+                    math.random() > 0.5 and math.random() * 0.05 or -math.random() * 0.05,
+                    math.random() > 0.5 and math.random() * 0.1 or -math.random() * 0.1,
+                    math.random() > 0.5 and math.random() * 0.05 or -math.random() * 0.05
+				) end,
                 },
                 ['Shotgun'] = {
-                    ['Normal'] = 20,
-                    ['Randomizer'] = {30, 50}  -- Min / Max
+                    ['Normal'] = { {30, 50} },  -- Min // Max
+					['Custom'] = function() return Vector3.new( -- This is the default spread for Da Hood, customize this how you prefer. 
+                    math.random() > 0.5 and math.random() * 0.05 or -math.random() * 0.05,
+                    math.random() > 0.5 and math.random() * 0.1 or -math.random() * 0.1,
+                    math.random() > 0.5 and math.random() * 0.05 or -math.random() * 0.05
+				) end,
                 }
             },
 
             ['Damage Override'] = { 
-                ['Enabled'] = true,
+                ['Enabled'] = false,
                 ['Weapons'] = { -- Full // Half // Min // Normal
                     ['[Revolver]'] = { ['Mode'] = 'Full' },
                     ['[Double-Barrel SG]'] = { ['Mode'] = 'Full' },
@@ -393,7 +406,7 @@ getgenv()['Prosper'] = {
                 },
             },
 
-            ['Range Enhancer'] = { ['Enabled'] = true, },
+            ['Range Enhancer'] = { ['Enabled'] = false, },
 
         },
 
@@ -404,7 +417,8 @@ getgenv()['Prosper'] = {
 
             ['Box'] = {
                 ['Enabled'] = false,
-                ['Type'] = 'Corner' -- Box // Corner (Box is a Bounding Box so use if your fps isnt shit)
+                ['Type'] = 'Bounding', -- Bounding // Static
+                ['Box Mode'] = 'Corner' -- Corner // Box
             },
 
             ['Health'] = {
@@ -473,9 +487,9 @@ getgenv()['Prosper'] = {
         },
         
         ['Character Modifications'] = {
-            ['Enabled'] = true,
+            ['Enabled'] = false,
             ['Anti Trip'] = true,
-            ['Anti Stop'] = true,
+            ['Speed Bypass'] = { ['Enabled'] = false },
             ['Speed Modifications'] = {
                 ['Enabled'] = true,
                 ['Multipliers'] = {
@@ -488,10 +502,10 @@ getgenv()['Prosper'] = {
             ['Jump Modifications'] = {
                 ['Enabled'] = true,
                 ['Multipliers'] = {
-                    ['Normal'] = { ['Multiplier'] = 5 },
-                    ['Shooting'] = { ['Multiplier'] = 5 },
-                    ['Reload'] = { ['Multiplier'] = 5 },
-                    ['Low Health'] = { ['Multiplier'] = 5 },
+                    ['Normal'] = { ['Multiplier'] = 1 },
+                    ['Shooting'] = { ['Multiplier'] = 1 },
+                    ['Reload'] = { ['Multiplier'] = 1 },
+                    ['Low Health'] = { ['Multiplier'] = 1 },
                 },
             },
         },
