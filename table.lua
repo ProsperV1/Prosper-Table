@@ -1,6 +1,6 @@
 getgenv()['Prosper'] = { 
         ['Authentication'] = {
-            ['Key'] = "cNTOfqyiiGHRgIVBPIgWAGalNzPgbDLg" -- put your key in for Luarmor
+            ['Key'] = "keyhere" -- put your key in for Luarmor
         },  
           
         ['Extras'] = {
